@@ -13,6 +13,7 @@
 		C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5A1B203CB100920B44 /* Images.xcassets */; };
 		C9811A5E1B203CB100920B44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5C1B203CB100920B44 /* LaunchScreen.xib */; };
 		C9811A6A1B203CB100920B44 /* ZKIAppFrameworkDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A691B203CB100920B44 /* ZKIAppFrameworkDemoTests.m */; };
+		C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A761B20427B00920B44 /* ZKINetworkManager.m */; };
 		D3EE81E264A1EB221F0B9026 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09197E1D2EF7D0C0CC3149E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,8 @@
 		C9811A631B203CB100920B44 /* ZKIAppFrameworkDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZKIAppFrameworkDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9811A681B203CB100920B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9811A691B203CB100920B44 /* ZKIAppFrameworkDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKIAppFrameworkDemoTests.m; sourceTree = "<group>"; };
+		C9811A751B20427B00920B44 /* ZKINetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKINetworkManager.h; sourceTree = "<group>"; };
+		C9811A761B20427B00920B44 /* ZKINetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKINetworkManager.m; sourceTree = "<group>"; };
 		CA437D8C6EEDDBBDE3D8803A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F04852702D01520BCB4EFFE6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +111,7 @@
 		C9811A491B203CB100920B44 /* ZKIAppFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C9811A731B20426600920B44 /* Manager */,
 				C9811A4E1B203CB100920B44 /* AppDelegate.h */,
 				C9811A4F1B203CB100920B44 /* AppDelegate.m */,
 				C9811A5A1B203CB100920B44 /* Images.xcassets */,
@@ -141,6 +145,23 @@
 				C9811A681B203CB100920B44 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C9811A731B20426600920B44 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C9811A741B20426600920B44 /* NetworkManager */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		C9811A741B20426600920B44 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				C9811A751B20427B00920B44 /* ZKINetworkManager.h */,
+				C9811A761B20427B00920B44 /* ZKINetworkManager.m */,
+			);
+			path = NetworkManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,6 +330,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
 				C9811A4D1B203CB100920B44 /* main.m in Sources */,
 			);

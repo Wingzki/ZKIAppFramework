@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ZKINetworkManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    [[[ZKINetworkManager shareManager] start] subscribeNext:^(id x) {
+        
+    }];
+    
     return YES;
 }
 
