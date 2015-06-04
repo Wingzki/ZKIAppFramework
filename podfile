@@ -1,0 +1,12 @@
+platform :ios, '7.0'
+inhibit_all_warnings!
+
+pod "ReactiveCocoa"
+pod "Masonry"
+pod "Reachability"
+pod "JSONModel"
+pod "YTKNetwork"
+
+target :ZKIAppFrameworkDemoTests, :exclusive => true do
+  pod 'Kiwi'
+end
