@@ -18,7 +18,6 @@
 
 + (ZKINetworkManager *)shareManager;
 
-- (RACSubject *)start;
-- (void)stop;
+- (RACSignal *)rac_currentReachabilityStatus;
 
 @end

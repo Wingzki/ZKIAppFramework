@@ -44,7 +44,7 @@
     return self;
 }
 
-- (RACSubject *)start {
+- (RACSignal *)rac_currentReachabilityStatus {
     
     @weakify(self)
     if (!self.currentReachabilityStatusSignal) {
@@ -58,9 +58,12 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                @strongify(self)
                 
-                _currentReachabilityStatus = reach.currentReachabilityStatus;
-                
-                [self.currentReachabilityStatusSignal sendNext:@(reach.currentReachabilityStatus)];
+                if (reach.currentReachabilityStatus != _currentReachabilityStatus) {
+                    
+                    _currentReachabilityStatus = reach.currentReachabilityStatus;
+                    
+                    [self.currentReachabilityStatusSignal sendNext:@(reach.currentReachabilityStatus)];
+                }
                 
             });
             
@@ -69,9 +72,12 @@
         self.reachability.unreachableBlock = ^(Reachability *reach) {
             @strongify(self)
             
-            _currentReachabilityStatus = reach.currentReachabilityStatus;
-            
-            [self.currentReachabilityStatusSignal sendNext:@(reach.currentReachabilityStatus)];
+            if (reach.currentReachabilityStatus != _currentReachabilityStatus) {
+                
+                _currentReachabilityStatus = reach.currentReachabilityStatus;
+                
+                [self.currentReachabilityStatusSignal sendNext:@(reach.currentReachabilityStatus)];
+            }
             
         };
         
@@ -80,14 +86,6 @@
     }
     
     return self.currentReachabilityStatusSignal;
-    
-}
-
-- (void)stop {
-    
-    [self.reachability stopNotifier];
-    
-    [self.currentReachabilityStatusSignal sendCompleted];
     
 }
 
