@@ -19,8 +19,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
 //    初始化网络状态监测
-    [[[ZKINetworkManager shareManager] rac_currentReachabilityStatus] subscribeNext:^(id x) {
-        NSLog(@"ZKINetworkManager = %@", x);
+    [[[ZKINetworkManager shareManager] rac_currentReachabilityStatus] subscribeNext:^(NSNumber *status) {
+        NSLog(@"ZKINetworkManager = %@", status);
     }];
     
     return YES;
