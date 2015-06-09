@@ -11,6 +11,8 @@
 		C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */; };
 		C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F11B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m */; };
 		C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F51B26C35700BECEE3 /* NSObject+Builder.m */; };
+		C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */; };
+		C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */; };
 		C9811A4D1B203CB100920B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4C1B203CB100920B44 /* main.m */; };
 		C9811A501B203CB100920B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4F1B203CB100920B44 /* AppDelegate.m */; };
 		C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5A1B203CB100920B44 /* Images.xcassets */; };
@@ -41,6 +43,10 @@
 		C92321F11B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationWithBuilder.m"; sourceTree = "<group>"; };
 		C92321F41B26C35700BECEE3 /* NSObject+Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Builder.h"; sourceTree = "<group>"; };
 		C92321F51B26C35700BECEE3 /* NSObject+Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Builder.m"; sourceTree = "<group>"; };
+		C92321F81B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKRequest+RecativeCocoa.h"; sourceTree = "<group>"; };
+		C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKRequest+RecativeCocoa.m"; sourceTree = "<group>"; };
+		C92321FC1B26D2BA00BECEE3 /* ZKITestRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKITestRequest.h; sourceTree = "<group>"; };
+		C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKITestRequest.m; sourceTree = "<group>"; };
 		C9811A471B203CB100920B44 /* ZKIAppFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKIAppFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9811A4B1B203CB100920B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9811A4C1B203CB100920B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -115,6 +121,26 @@
 			path = "NSObject+Builder";
 			sourceTree = "<group>";
 		};
+		C92321F71B26CBB700BECEE3 /* YTKRequest+ReactiveCocoa */ = {
+			isa = PBXGroup;
+			children = (
+				C92321F81B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.h */,
+				C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */,
+			);
+			path = "YTKRequest+ReactiveCocoa";
+			sourceTree = "<group>";
+		};
+		C92321FB1B26D28200BECEE3 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				C92321ED1B26C0EC00BECEE3 /* ZKIRootViewController.h */,
+				C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */,
+				C92321FC1B26D2BA00BECEE3 /* ZKITestRequest.h */,
+				C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */,
+			);
+			name = Test;
+			sourceTree = "<group>";
+		};
 		C9811A3E1B203CB100920B44 = {
 			isa = PBXGroup;
 			children = (
@@ -138,6 +164,8 @@
 		C9811A491B203CB100920B44 /* ZKIAppFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C92321FB1B26D28200BECEE3 /* Test */,
+				C92321F71B26CBB700BECEE3 /* YTKRequest+ReactiveCocoa */,
 				C92321F31B26C35700BECEE3 /* NSObject+Builder */,
 				C92321E91B26BDFD00BECEE3 /* UIViewController+NavigationWithBuilder */,
 				C9811A731B20426600920B44 /* Manager */,
@@ -146,8 +174,6 @@
 				C9811A5A1B203CB100920B44 /* Images.xcassets */,
 				C9811A5C1B203CB100920B44 /* LaunchScreen.xib */,
 				C9811A4A1B203CB100920B44 /* Supporting Files */,
-				C92321ED1B26C0EC00BECEE3 /* ZKIRootViewController.h */,
-				C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */,
 			);
 			path = ZKIAppFrameworkDemo;
 			sourceTree = "<group>";
@@ -362,6 +388,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */,
+				C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */,
+				C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */,
 				C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
 				C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */,
