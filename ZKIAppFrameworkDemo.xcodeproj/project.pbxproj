@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		18298E09A2A97987C6261565 /* libPods-ZKIAppFrameworkDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A19FD44C85FDE9EA255EC /* libPods-ZKIAppFrameworkDemoTests.a */; };
+		C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */; };
+		C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F11B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m */; };
+		C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F51B26C35700BECEE3 /* NSObject+Builder.m */; };
 		C9811A4D1B203CB100920B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4C1B203CB100920B44 /* main.m */; };
 		C9811A501B203CB100920B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4F1B203CB100920B44 /* AppDelegate.m */; };
 		C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5A1B203CB100920B44 /* Images.xcassets */; };
@@ -32,6 +35,12 @@
 		2779178EFC1DC3C5163B17FE /* Pods-ZKIAppFrameworkDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKIAppFrameworkDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZKIAppFrameworkDemoTests/Pods-ZKIAppFrameworkDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		787D5786881703ADD8550F2A /* Pods-ZKIAppFrameworkDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKIAppFrameworkDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKIAppFrameworkDemoTests/Pods-ZKIAppFrameworkDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD7A19FD44C85FDE9EA255EC /* libPods-ZKIAppFrameworkDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZKIAppFrameworkDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C92321ED1B26C0EC00BECEE3 /* ZKIRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIRootViewController.h; sourceTree = "<group>"; };
+		C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIRootViewController.m; sourceTree = "<group>"; };
+		C92321F01B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationWithBuilder.h"; sourceTree = "<group>"; };
+		C92321F11B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+NavigationWithBuilder.m"; sourceTree = "<group>"; };
+		C92321F41B26C35700BECEE3 /* NSObject+Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Builder.h"; sourceTree = "<group>"; };
+		C92321F51B26C35700BECEE3 /* NSObject+Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Builder.m"; sourceTree = "<group>"; };
 		C9811A471B203CB100920B44 /* ZKIAppFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKIAppFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9811A4B1B203CB100920B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9811A4C1B203CB100920B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -88,6 +97,24 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C92321E91B26BDFD00BECEE3 /* UIViewController+NavigationWithBuilder */ = {
+			isa = PBXGroup;
+			children = (
+				C92321F01B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.h */,
+				C92321F11B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m */,
+			);
+			path = "UIViewController+NavigationWithBuilder";
+			sourceTree = "<group>";
+		};
+		C92321F31B26C35700BECEE3 /* NSObject+Builder */ = {
+			isa = PBXGroup;
+			children = (
+				C92321F41B26C35700BECEE3 /* NSObject+Builder.h */,
+				C92321F51B26C35700BECEE3 /* NSObject+Builder.m */,
+			);
+			path = "NSObject+Builder";
+			sourceTree = "<group>";
+		};
 		C9811A3E1B203CB100920B44 = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +138,16 @@
 		C9811A491B203CB100920B44 /* ZKIAppFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C92321F31B26C35700BECEE3 /* NSObject+Builder */,
+				C92321E91B26BDFD00BECEE3 /* UIViewController+NavigationWithBuilder */,
 				C9811A731B20426600920B44 /* Manager */,
 				C9811A4E1B203CB100920B44 /* AppDelegate.h */,
 				C9811A4F1B203CB100920B44 /* AppDelegate.m */,
 				C9811A5A1B203CB100920B44 /* Images.xcassets */,
 				C9811A5C1B203CB100920B44 /* LaunchScreen.xib */,
 				C9811A4A1B203CB100920B44 /* Supporting Files */,
+				C92321ED1B26C0EC00BECEE3 /* ZKIRootViewController.h */,
+				C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */,
 			);
 			path = ZKIAppFrameworkDemo;
 			sourceTree = "<group>";
@@ -331,7 +362,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */,
+				C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
+				C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */,
+				C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */,
 				C9811A4D1B203CB100920B44 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

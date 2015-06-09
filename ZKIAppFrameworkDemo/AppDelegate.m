@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "ZKINetworkManager.h"
+#import "ZKIRootViewController.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,20 @@
     [[[ZKINetworkManager shareManager] rac_currentReachabilityStatus] subscribeNext:^(NSNumber *status) {
         NSLog(@"ZKINetworkManager = %@", status);
     }];
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    ZKIRootViewController *rootVC = [ZKIRootViewController createWithBuilder:^(ZKIRootViewController *builder) {
+        
+        builder.titleText = @"Foo";
+        
+    }];
+
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:rootVC];
+    
+    self.window.rootViewController = nav;
     
     return YES;
 }

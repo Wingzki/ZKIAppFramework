@@ -10,6 +10,10 @@
 	<string>ZKIAppFrameworkDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>198558D24177BEB407373AEDAB20A70863B47224</key>
+		<string>https://github.com/Wingzki/NSObject-Builder.git</string>
+		<key>44CEC729B2537A9BE00CDF40502D82323EE23784</key>
+		<string>https://github.com/thewingofthesky/UIViewController-Router.git</string>
 		<key>90937527F92239081C95D6470DEA9261510F33D3</key>
 		<string>https://github.com/Wingzki/ZKIAppFramework.git</string>
 	</dict>
@@ -17,6 +21,10 @@
 	<string>ZKIAppFrameworkDemo.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>198558D24177BEB407373AEDAB20A70863B47224</key>
+		<string>../../ZKINSObjectBuilder</string>
+		<key>44CEC729B2537A9BE00CDF40502D82323EE23784</key>
+		<string>../../ZKIViewControllerRouter</string>
 		<key>90937527F92239081C95D6470DEA9261510F33D3</key>
 		<string>..</string>
 	</dict>
@@ -35,6 +43,22 @@
 			<string>90937527F92239081C95D6470DEA9261510F33D3</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ZKIAppFrameworkDemo</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>198558D24177BEB407373AEDAB20A70863B47224</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZKINSObjectBuilder</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>44CEC729B2537A9BE00CDF40502D82323EE23784</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ZKIViewControllerRouter</string>
 		</dict>
 	</array>
 </dict>
