@@ -44,4 +44,32 @@
     
 }
 
+- (RACSignal *)rac_restartRequest {
+    
+    RACSubject *requestStatusSignal = [[RACSubject alloc] init];
+    
+    [requestStatusSignal sendNext:@(YES)];
+    
+    [self startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+        
+        [requestStatusSignal sendNext:@(NO)];
+        
+        [requestStatusSignal sendNext:request.responseJSONObject];
+        
+        [requestStatusSignal sendCompleted];
+        
+    } failure:^(YTKBaseRequest *request) {
+        
+        [requestStatusSignal sendNext:@(YES)];
+        
+        NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:0 userInfo:@{@"Request": request}];
+        
+        [requestStatusSignal sendError:error];
+        
+    }];
+    
+    return requestStatusSignal;
+    
+}
+
 @end

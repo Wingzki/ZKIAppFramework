@@ -16,4 +16,6 @@
 
 + (RACSignal *)rac_startRequestWithBuilder:(void(^)(id <NSObjectBuilderProtocol> builder))block;
 
+- (RACSignal *)rac_restartRequest;
+
 @end
