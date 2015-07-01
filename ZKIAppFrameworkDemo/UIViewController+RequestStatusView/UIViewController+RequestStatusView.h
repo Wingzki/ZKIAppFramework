@@ -7,7 +7,23 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+RequestStatusHandle.h"
+#import "YTKRequest.h"
 
-@interface UIViewController (RequestStatusView)
+@protocol RequestStatusViewProtocol <NSObject>
+
+@optional
+
+- (void)showActivity:(BOOL)show;
+
+- (void)showEmptyView:(BOOL)show;
+
+- (void)showErrorView:(BOOL)show withRequest:(YTKRequest *)request;
+
+@end
+
+@interface UIViewController (RequestStatusView) <RequestStatusViewProtocol>
+
+- (void)handleRequestStatusView:(NSObject <RequestStatusHandleProtocol> *)object;
 
 @end

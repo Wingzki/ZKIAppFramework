@@ -10,7 +10,7 @@
 
 @implementation UIViewController (NavigationWithBuilder)
 
-+ (instancetype)pushBasedViewControll:(UIViewController *)baseViewController builder:(void (^)(id<NSObjectBuilderProtocol> builder))block {
++ (instancetype)pushBasedViewControll:(UIViewController *)baseViewController builder:(void (^)(id <NSObjectBuilderProtocol> builder))block {
     
     UIViewController *vc = [self createWithBuilder:block];
     
@@ -20,7 +20,7 @@
     
 }
 
-+ (instancetype)presentBasedViewControll:(UIViewController *)baseViewController builder:(void (^)(id<NSObjectBuilderProtocol> builder))block {
++ (instancetype)presentBasedViewControll:(UIViewController *)baseViewController builder:(void (^)(id <NSObjectBuilderProtocol> builder))block {
     
     UIViewController *vc = [self createWithBuilder:block];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];

@@ -20,6 +20,7 @@
 		C9811A5E1B203CB100920B44 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5C1B203CB100920B44 /* LaunchScreen.xib */; };
 		C9811A6A1B203CB100920B44 /* ZKIAppFrameworkDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A691B203CB100920B44 /* ZKIAppFrameworkDemoTests.m */; };
 		C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A761B20427B00920B44 /* ZKINetworkManager.m */; };
+		C9E592241B438F1100453441 /* UIViewController+RequestStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E592231B438F1100453441 /* UIViewController+RequestStatusView.m */; };
 		D3EE81E264A1EB221F0B9026 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09197E1D2EF7D0C0CC3149E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +63,8 @@
 		C9811A691B203CB100920B44 /* ZKIAppFrameworkDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZKIAppFrameworkDemoTests.m; sourceTree = "<group>"; };
 		C9811A751B20427B00920B44 /* ZKINetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKINetworkManager.h; sourceTree = "<group>"; };
 		C9811A761B20427B00920B44 /* ZKINetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKINetworkManager.m; sourceTree = "<group>"; };
+		C9E592221B438F1100453441 /* UIViewController+RequestStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RequestStatusView.h"; sourceTree = "<group>"; };
+		C9E592231B438F1100453441 /* UIViewController+RequestStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RequestStatusView.m"; sourceTree = "<group>"; };
 		CA437D8C6EEDDBBDE3D8803A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F04852702D01520BCB4EFFE6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -178,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				C92321FB1B26D28200BECEE3 /* Test */,
+				C9E592211B438EDC00453441 /* UIViewController+RequestStatusView */,
 				C92321FF1B27E2D000BECEE3 /* NSObject+RequestStatusHandle */,
 				C92321F71B26CBB700BECEE3 /* YTKRequest+ReactiveCocoa */,
 				C92321F31B26C35700BECEE3 /* NSObject+Builder */,
@@ -233,6 +237,15 @@
 				C9811A761B20427B00920B44 /* ZKINetworkManager.m */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		C9E592211B438EDC00453441 /* UIViewController+RequestStatusView */ = {
+			isa = PBXGroup;
+			children = (
+				C9E592221B438F1100453441 /* UIViewController+RequestStatusView.h */,
+				C9E592231B438F1100453441 /* UIViewController+RequestStatusView.m */,
+			);
+			path = "UIViewController+RequestStatusView";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,6 +419,7 @@
 				C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */,
 				C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */,
 				C92322021B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.m in Sources */,
+				C9E592241B438F1100453441 /* UIViewController+RequestStatusView.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
 				C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */,
 				C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */,

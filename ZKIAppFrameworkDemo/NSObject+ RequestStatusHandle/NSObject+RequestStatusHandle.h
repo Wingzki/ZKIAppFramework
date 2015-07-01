@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "YTKRequest.h"
 
 #import "ReactiveCocoa.h"
 #import "RACEXTScope.h"
@@ -20,6 +21,12 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
     
 };
 
+@protocol RequestStatusHandleProtocol <NSObject>
+
+@property (strong, nonatomic) RACSubject *requestStatusSiganl;
+
+@end
+
 @interface NSObject (RequestStatusHandle)
 
 @property (strong, nonatomic) RACSubject *requestStatusSiganl;
@@ -27,9 +34,10 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 - (void)registerRequestSignal:(RACSignal *)signal
                 showErrorView:(BOOL)isShowError
                  showActivity:(BOOL)isShowActivity
-                  emptyHandle:(NSInteger (^)(NSDictionary *dataDic))block;
+                  emptyHandle:(NSInteger (^)(id value))block;
 
-- (void)registerDataEmptySignal:(RACSignal *)signal handle:(NSInteger (^)(NSDictionary *dataDic))block;
+- (void)registerDataEmptySignal:(RACSignal *)signal
+                         handle:(NSInteger (^)(id value))block;
 
 - (void)registerDataErrorSignal:(RACSignal *)signal;
 

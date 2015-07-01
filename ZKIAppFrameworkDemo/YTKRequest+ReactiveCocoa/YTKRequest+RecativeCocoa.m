@@ -32,7 +32,7 @@
         
     } failure:^(YTKBaseRequest *request) {
         
-        [requestStatusSignal sendNext:@(YES)];
+        [requestStatusSignal sendNext:@(NO)];
         
         NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:0 userInfo:@{@"Request": request}];
         
@@ -60,7 +60,7 @@
         
     } failure:^(YTKBaseRequest *request) {
         
-        [requestStatusSignal sendNext:@(YES)];
+        [requestStatusSignal sendNext:@(NO)];
         
         NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:0 userInfo:@{@"Request": request}];
         

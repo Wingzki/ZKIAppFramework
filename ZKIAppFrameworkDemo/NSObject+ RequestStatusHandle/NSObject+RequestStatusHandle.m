@@ -24,7 +24,7 @@ static const char *varKey = "requestStatusSiganl";
 - (void)registerRequestSignal:(RACSignal *)signal
                 showErrorView:(BOOL)isShowError
                  showActivity:(BOOL)isShowActivity
-                  emptyHandle:(NSInteger (^)(NSDictionary *dataDic))block {
+                  emptyHandle:(NSInteger (^)(id value))block {
     
     if (isShowError) {
         
@@ -45,7 +45,8 @@ static const char *varKey = "requestStatusSiganl";
     
 }
 
-- (void)registerDataEmptySignal:(RACSignal *)signal handle:(NSInteger (^)(NSDictionary *dataDic))block {
+- (void)registerDataEmptySignal:(RACSignal *)signal
+                         handle:(NSInteger (^)(id value))block {
     
     if (!self.requestStatusSiganl) {
         
@@ -55,7 +56,7 @@ static const char *varKey = "requestStatusSiganl";
     
     [[signal filter:^BOOL(id value) {
         
-        return [value isKindOfClass:[NSDictionary class]];
+        return ([value isKindOfClass:[NSDictionary class]] || [value isKindOfClass:[NSArray class]]);
         
     }] subscribeNext:^(id x) {
         
@@ -81,7 +82,10 @@ static const char *varKey = "requestStatusSiganl";
     
     [signal subscribeError:^(NSError *error) {
         
+        YTKRequest *request = error.userInfo[@"Request"];
         
+        [self.requestStatusSiganl sendNext:@(RequestStatusShowErrorView)];
+        [self.requestStatusSiganl sendNext:request];
         
     }];
     
@@ -101,7 +105,15 @@ static const char *varKey = "requestStatusSiganl";
         
     }] subscribeNext:^(id x) {
         
-        
+        if ([x boolValue]) {
+            
+            [self.requestStatusSiganl sendNext:@(RequestStatusShowActivity)];
+            
+        }else {
+            
+            [self.requestStatusSiganl sendNext:@(RequestStatusHideActivity)];
+            
+        }
         
     }];
     
