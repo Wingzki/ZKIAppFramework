@@ -8,7 +8,6 @@
 
 #import "UIViewController+RequestStatusView.h"
 
-
 @implementation UIViewController (RequestStatusView)
 
 - (void)handleRequestStatusView:(NSObject <RequestStatusHandleProtocol> *)object {
@@ -39,10 +38,6 @@
                     
                 case RequestStatusShowErrorView:
                     
-                    if ([self respondsToSelector:@selector(showErrorView:withRequest:)]) {
-                        [self showErrorView:YES withRequest:nil];
-                    }
-                    
                     break;
                     
                 case RequestStatusShowEmptyView:
@@ -56,7 +51,6 @@
                 default:
                     break;
             }
-            
             
         }else if ([x isKindOfClass:[YTKRequest class]]) {
             

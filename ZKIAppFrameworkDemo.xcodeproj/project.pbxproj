@@ -180,10 +180,8 @@
 		C9811A491B203CB100920B44 /* ZKIAppFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C9E592251B4397BE00453441 /* Request+View */,
 				C92321FB1B26D28200BECEE3 /* Test */,
-				C9E592211B438EDC00453441 /* UIViewController+RequestStatusView */,
-				C92321FF1B27E2D000BECEE3 /* NSObject+RequestStatusHandle */,
-				C92321F71B26CBB700BECEE3 /* YTKRequest+ReactiveCocoa */,
 				C92321F31B26C35700BECEE3 /* NSObject+Builder */,
 				C92321E91B26BDFD00BECEE3 /* UIViewController+NavigationWithBuilder */,
 				C9811A731B20426600920B44 /* Manager */,
@@ -246,6 +244,16 @@
 				C9E592231B438F1100453441 /* UIViewController+RequestStatusView.m */,
 			);
 			path = "UIViewController+RequestStatusView";
+			sourceTree = "<group>";
+		};
+		C9E592251B4397BE00453441 /* Request+View */ = {
+			isa = PBXGroup;
+			children = (
+				C9E592211B438EDC00453441 /* UIViewController+RequestStatusView */,
+				C92321FF1B27E2D000BECEE3 /* NSObject+RequestStatusHandle */,
+				C92321F71B26CBB700BECEE3 /* YTKRequest+ReactiveCocoa */,
+			);
+			name = "Request+View";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
