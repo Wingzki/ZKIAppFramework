@@ -20,8 +20,6 @@
     
     YTKRequest *newRequest = [self createWithBuilder:block];
     
-    [requestStatusSignal sendNext:@(YES)];
-    
     [newRequest startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
         [requestStatusSignal sendNext:@(NO)];
@@ -40,15 +38,13 @@
         
     }];
     
-    return requestStatusSignal;
+    return [requestStatusSignal startWith:@(YES)];
     
 }
 
 - (RACSignal *)rac_restartRequest {
     
     RACSubject *requestStatusSignal = [[RACSubject alloc] init];
-    
-    [requestStatusSignal sendNext:@(YES)];
     
     [self startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
         
@@ -68,7 +64,7 @@
         
     }];
     
-    return requestStatusSignal;
+    return [requestStatusSignal startWith:@(YES)];
     
 }
 
