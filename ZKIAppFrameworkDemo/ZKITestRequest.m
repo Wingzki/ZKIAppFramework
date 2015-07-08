@@ -31,4 +31,9 @@
     return YTKRequestMethodGet;
 }
 
+- (id)responseDataHandle:(id)value racSubject:(RACSubject *)subject {
+    
+    return value;
+}
+
 @end

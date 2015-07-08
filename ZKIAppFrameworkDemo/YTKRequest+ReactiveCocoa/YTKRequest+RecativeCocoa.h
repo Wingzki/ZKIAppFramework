@@ -12,7 +12,15 @@
 #import "ReactiveCocoa.h"
 #import "RACEXTScope.h"
 
-@interface YTKRequest (RecativeCocoa)
+@protocol YTKRequestResponseDataHandleProtocol <NSObject>
+
+@optional
+
+- (id)responseDataHandle:(id)value racSubject:(RACSubject *)subject;
+
+@end
+
+@interface YTKRequest (RecativeCocoa) <YTKRequestResponseDataHandleProtocol>
 
 + (RACSignal *)rac_startRequestWithBuilder:(void(^)(id <NSObjectBuilderProtocol> builder))block;
 

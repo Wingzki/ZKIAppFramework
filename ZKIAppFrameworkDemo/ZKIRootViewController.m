@@ -28,13 +28,17 @@
         
     }];
     
-    [self registerRequestSignal:requestSignal showErrorView:YES showActivity:YES emptyHandle:^NSInteger(NSDictionary *dataDic) {
+    [self registerRequestSignal:requestSignal showErrorView:YES showActivity:YES emptyHandle:^NSInteger(id value) {
         
         return 0;
         
     }];
     
+    [self registerDataErrorSignal:requestSignal class:[NSDictionary class] handle:^(NSDictionary *value) {
+        
+    }];
+    
+    
 }
-
 
 @end

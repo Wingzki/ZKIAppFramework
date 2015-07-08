@@ -41,12 +41,17 @@ static const char *varKey = "requestStatusSiganl";
     if (block) {
         
         [self registerDataEmptySignal:signal handle:block];
+        
     }
     
 }
 
 - (void)registerDataEmptySignal:(RACSignal *)signal
                          handle:(NSInteger (^)(id value))block {
+    
+    if (!block) {
+        return;
+    }
     
     if (!self.requestStatusSiganl) {
         
@@ -119,5 +124,18 @@ static const char *varKey = "requestStatusSiganl";
     
 }
 
+- (void)registerDataErrorSignal:(RACSignal *)signal class:(Class)class handle:(void (^)(id value))block {
+    
+    [[signal filter:^BOOL(id value) {
+        
+        return [value isKindOfClass:class];
+        
+    }] subscribeNext:^(id x) {
+        
+       block(x);
+        
+    }];
+    
+}
 
 @end

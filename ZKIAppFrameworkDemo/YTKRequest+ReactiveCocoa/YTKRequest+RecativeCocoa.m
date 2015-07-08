@@ -24,7 +24,15 @@
         
         [requestStatusSignal sendNext:@(NO)];
         
-        [requestStatusSignal sendNext:request.responseJSONObject];
+        if ([newRequest respondsToSelector:@selector(responseDataHandle:racSubject:)]) {
+            
+            [requestStatusSignal sendNext:[newRequest responseDataHandle:request.responseJSONObject racSubject:requestStatusSignal]];
+            
+        }else {
+            
+            [requestStatusSignal sendNext:request.responseJSONObject];
+            
+        }
         
         [requestStatusSignal sendCompleted];
         
@@ -32,7 +40,7 @@
         
         [requestStatusSignal sendNext:@(NO)];
         
-        NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:0 userInfo:@{@"Request": request}];
+        NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:request.responseStatusCode userInfo:@{@"Request": request}];
         
         [requestStatusSignal sendError:error];
         
@@ -50,7 +58,15 @@
         
         [requestStatusSignal sendNext:@(NO)];
         
-        [requestStatusSignal sendNext:request.responseJSONObject];
+        if ([self respondsToSelector:@selector(responseDataHandle:racSubject:)]) {
+            
+            [requestStatusSignal sendNext:[self responseDataHandle:request.responseJSONObject racSubject:requestStatusSignal]];
+            
+        }else {
+            
+            [requestStatusSignal sendNext:request.responseJSONObject];
+            
+        }
         
         [requestStatusSignal sendCompleted];
         
@@ -58,7 +74,7 @@
         
         [requestStatusSignal sendNext:@(NO)];
         
-        NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:0 userInfo:@{@"Request": request}];
+        NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:request.responseStatusCode userInfo:@{@"Request": request}];
         
         [requestStatusSignal sendError:error];
         

@@ -43,4 +43,8 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 
 - (void)registerActivitySignal:(RACSignal *)signal;
 
+- (void)registerDataErrorSignal:(RACSignal *)signal
+                          class:(Class)class
+                         handle:(void (^)(id value))block;
+
 @end
