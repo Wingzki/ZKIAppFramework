@@ -22,8 +22,6 @@
 
 @interface YTKRequest (RecativeCocoa) <YTKRequestResponseDataHandleProtocol>
 
-+ (RACSignal *)rac_startRequestWithBuilder:(void(^)(id <NSObjectBuilderProtocol> builder))block;
-
-- (RACSignal *)rac_restartRequest;
+- (RACSignal *)rac_start;
 
 @end

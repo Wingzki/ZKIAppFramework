@@ -29,10 +29,13 @@
     
     self.navigationItem.title = self.titleText;
     
-//    发起一个新的请求
-    RACSignal *requestSignal = [ZKITestRequest rac_startRequestWithBuilder:^(id<NSObjectBuilderProtocol> builder) {
+//    初始化一个新的请求
+    ZKITestRequest *request = [ZKITestRequest createWithBuilder:^(id<NSObjectBuilderProtocol> builder) {
         
     }];
+    
+//    开始请求
+    RACSignal *requestSignal = [request rac_start];
     
 //    注册请求需要被处理的异常状态
     [self registerRequestSignal:requestSignal showErrorView:YES showActivity:YES emptyHandle:^NSInteger(id value) {
@@ -45,7 +48,9 @@
     [self handleRequestStatusView:self.requestStatusSiganl scrollView:nil];
     
 //    处理请求返回的数据
-    [self registerDataSignal:requestSignal class:[NSDictionary class] handle:^(NSDictionary *value) {
+    [[self filterSignal:requestSignal class:[NSDictionary class]] subscribeNext:^(NSDictionary *x) {
+        
+        NSLog(@"%@", x);
         
     }];
     
@@ -82,6 +87,15 @@
 }
 
 - (void)showErrorView:(BOOL)show withRequest:(YTKRequest *)request; {
+    
+    if (show) {
+        
+        NSLog(@"网络错误");
+        
+    }else {
+        
+        
+    }
     
 }
 

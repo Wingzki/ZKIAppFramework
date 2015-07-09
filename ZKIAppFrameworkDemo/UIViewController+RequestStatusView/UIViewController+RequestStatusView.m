@@ -42,7 +42,7 @@
                 case RequestStatusShowEmptyView:
                     
                     if ([self respondsToSelector:@selector(showEmptyView:)]) {
-                        [self showEmptyView:NO];
+                        [self showEmptyView:YES];
                     }
                     
                     break;

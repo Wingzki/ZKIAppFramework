@@ -37,7 +37,7 @@ static const char *varKey = "requestStatusSiganl";
     
     if (isShowError) {
         
-        [self registerDataErrorSignal:signal];
+        [self registerNetworkErrorSignal:signal];
         
     }
     
@@ -86,7 +86,7 @@ static const char *varKey = "requestStatusSiganl";
     
 }
 
-- (void)registerDataErrorSignal:(RACSignal *)signal {
+- (void)registerNetworkErrorSignal:(RACSignal *)signal {
     
     if (!self.requestStatusSiganl) {
         
@@ -96,10 +96,14 @@ static const char *varKey = "requestStatusSiganl";
     
     [signal subscribeError:^(NSError *error) {
         
-        YTKRequest *request = error.userInfo[@"Request"];
-        
-        [self.requestStatusSiganl sendNext:@(RequestStatusShowErrorView)];
-        [self.requestStatusSiganl sendNext:request];
+        if (error.code == 0) {
+            
+            YTKRequest *request = error.userInfo[@"Request"];
+            
+            [self.requestStatusSiganl sendNext:@(RequestStatusShowErrorView)];
+            [self.requestStatusSiganl sendNext:request];
+            
+        }
         
     }];
     
@@ -133,15 +137,11 @@ static const char *varKey = "requestStatusSiganl";
     
 }
 
-- (void)registerDataSignal:(RACSignal *)signal class:(Class)class handle:(void (^)(id value))block {
+- (RACSignal *)filterSignal:(RACSignal *)signal class:(Class)class {
     
-    [[signal filter:^BOOL(id value) {
+    return [signal filter:^BOOL(id value) {
         
         return [value isKindOfClass:class];
-        
-    }] subscribeNext:^(id x) {
-        
-       block(x);
         
     }];
     
