@@ -10,10 +10,9 @@
 
 @implementation UIViewController (RequestStatusView)
 
-- (void)handleRequestStatusView:(NSObject <RequestStatusHandleProtocol> *)object {
+- (void)handleRequestStatusView:(RACSignal *)signal scrollView:(UIScrollView *)scrollView {
     
-    [object.requestStatusSiganl subscribeNext:^(id x) {
-        
+    [signal subscribeNext:^(id x) {
         
         if ([x isKindOfClass:[NSNumber class]]) {
            

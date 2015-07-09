@@ -14,6 +14,15 @@
 static const char *varKey = "requestStatusSiganl";
 
 - (RACSubject *)requestStatusSiganl {
+    
+    RACSubject *temp = (RACSubject *)objc_getAssociatedObject(self, &varKey);
+    
+    if (!temp) {
+        
+        self.requestStatusSiganl = (RACSubject *)[[[RACSubject alloc] init] replay];
+        
+    }
+    
     return (RACSubject *)objc_getAssociatedObject(self, &varKey);
 }
 
@@ -124,7 +133,7 @@ static const char *varKey = "requestStatusSiganl";
     
 }
 
-- (void)registerDataErrorSignal:(RACSignal *)signal class:(Class)class handle:(void (^)(id value))block {
+- (void)registerDataSignal:(RACSignal *)signal class:(Class)class handle:(void (^)(id value))block {
     
     [[signal filter:^BOOL(id value) {
         

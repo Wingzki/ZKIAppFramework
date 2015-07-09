@@ -27,9 +27,7 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 
 @end
 
-@interface NSObject (RequestStatusHandle)
-
-@property (strong, nonatomic) RACSubject *requestStatusSiganl;
+@interface NSObject (RequestStatusHandle) <RequestStatusHandleProtocol>
 
 - (void)registerRequestSignal:(RACSignal *)signal
                 showErrorView:(BOOL)isShowError
@@ -43,7 +41,7 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 
 - (void)registerActivitySignal:(RACSignal *)signal;
 
-- (void)registerDataErrorSignal:(RACSignal *)signal
+- (void)registerDataSignal:(RACSignal *)signal
                           class:(Class)class
                          handle:(void (^)(id value))block;
 
