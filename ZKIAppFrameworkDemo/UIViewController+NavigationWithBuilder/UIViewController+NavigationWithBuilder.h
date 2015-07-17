@@ -12,10 +12,10 @@
 @interface UIViewController (NavigationWithBuilder)
 
 + (instancetype)pushBasedViewControll:(UIViewController *)baseViewController
-                              builder:(void(^)(id <NSObjectBuilderProtocol> builder))block;
+                              builder:(BuilderBlock)block;
 
 + (instancetype)presentBasedViewControll:(UIViewController *)baseViewController
-                                 builder:(void(^)(id <NSObjectBuilderProtocol> builder))block;
+                                 builder:(BuilderBlock)block;
 
 
 @end

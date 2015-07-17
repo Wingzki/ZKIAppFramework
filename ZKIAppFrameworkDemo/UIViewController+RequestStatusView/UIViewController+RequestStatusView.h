@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSObject+RequestStatusHandle.h"
-#import "YTKRequest.h"
+
+#import "YTKRequest+RecativeCocoa.h"
 
 @protocol RequestStatusViewProtocol <NSObject>
 
@@ -18,11 +18,11 @@
 
 - (void)showEmptyView:(BOOL)show;
 
-- (void)showErrorView:(BOOL)show withRequest:(YTKRequest *)request;
+- (void)showErrorView:(BOOL)show;
 
 @end
 
-@interface UIViewController (RequestStatusView) <RequestStatusViewProtocol>
+@interface UIViewController (RequestStatusView)
 
 - (void)handleRequestStatusView:(RACSignal *)signal scrollView:(UIScrollView *)scrollView;
 

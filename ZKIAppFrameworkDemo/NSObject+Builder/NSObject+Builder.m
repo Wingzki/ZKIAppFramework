@@ -10,7 +10,7 @@
 
 @implementation NSObject (Builder)
 
-+ (instancetype)createWithBuilder:(void(^)(id <NSObjectBuilderProtocol> builder))block {
++ (instancetype)createWithBuilder:(BuilderBlock)block {
     
     id objc = [[self alloc] init];
 

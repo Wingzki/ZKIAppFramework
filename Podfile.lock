@@ -24,7 +24,7 @@ PODS:
     - AFNetworking/NSURLSession
   - JSONModel (1.1.0)
   - Kiwi (2.3.1)
-  - Masonry (0.6.1)
+  - Masonry (0.6.2)
   - Reachability (3.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
@@ -33,7 +33,7 @@ PODS:
   - ReactiveCocoa/no-arc (2.5)
   - ReactiveCocoa/UI (2.5):
     - ReactiveCocoa/Core
-  - YTKNetwork (0.4.0):
+  - YTKNetwork (0.5.0):
     - AFDownloadRequestOperation (~> 2.0)
     - AFNetworking (~> 2.0)
 
@@ -50,9 +50,9 @@ SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
-  Masonry: 4972309f2f134de9dd312f4dc4a21359b50e6caa
+  Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
-  YTKNetwork: bff731e698aa1b5071659a28fd5b898cad7e77a2
+  YTKNetwork: 3f163c181ce5f03d52cf88f39d6757f46894280c
 
 COCOAPODS: 0.37.2

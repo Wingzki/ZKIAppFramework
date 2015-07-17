@@ -16,8 +16,10 @@
 
 @end
 
+typedef void (^BuilderBlock)(id <NSObjectBuilderProtocol> builder);
+
 @interface NSObject (Builder)
 
-+ (instancetype)createWithBuilder:(void(^)(id <NSObjectBuilderProtocol> builder))block;
++ (instancetype)createWithBuilder:(BuilderBlock)block;
 
 @end

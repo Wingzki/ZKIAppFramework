@@ -8,6 +8,16 @@
 
 #import "UIViewController+RequestStatusView.h"
 
+@interface UIViewController ()
+
+- (void)showActivity:(BOOL)show;
+
+- (void)showEmptyView:(BOOL)show;
+
+- (void)showErrorView:(BOOL)show;
+
+@end
+
 @implementation UIViewController (RequestStatusView)
 
 - (void)handleRequestStatusView:(RACSignal *)signal scrollView:(UIScrollView *)scrollView {
@@ -37,6 +47,10 @@
                     
                 case RequestStatusShowErrorView:
                     
+                    if ([self respondsToSelector:@selector(showErrorView:)]) {
+                        [self showErrorView:NO];
+                    }
+                    
                     break;
                     
                 case RequestStatusShowEmptyView:
@@ -49,14 +63,6 @@
                     
                 default:
                     break;
-            }
-            
-        }else if ([x isKindOfClass:[YTKRequest class]]) {
-            
-            YTKRequest *request = x;
-            
-            if ([self respondsToSelector:@selector(showErrorView:withRequest:)]) {
-                [self showErrorView:YES withRequest:request];
             }
             
         }

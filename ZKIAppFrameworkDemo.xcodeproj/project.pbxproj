@@ -13,7 +13,6 @@
 		C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F51B26C35700BECEE3 /* NSObject+Builder.m */; };
 		C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */; };
 		C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */; };
-		C92322021B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = C92322011B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.m */; };
 		C9811A4D1B203CB100920B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4C1B203CB100920B44 /* main.m */; };
 		C9811A501B203CB100920B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4F1B203CB100920B44 /* AppDelegate.m */; };
 		C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5A1B203CB100920B44 /* Images.xcassets */; };
@@ -49,8 +48,6 @@
 		C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKRequest+RecativeCocoa.m"; sourceTree = "<group>"; };
 		C92321FC1B26D2BA00BECEE3 /* ZKITestRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKITestRequest.h; sourceTree = "<group>"; };
 		C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKITestRequest.m; sourceTree = "<group>"; };
-		C92322001B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RequestStatusHandle.h"; sourceTree = "<group>"; };
-		C92322011B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RequestStatusHandle.m"; sourceTree = "<group>"; };
 		C9811A471B203CB100920B44 /* ZKIAppFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKIAppFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9811A4B1B203CB100920B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9811A4C1B203CB100920B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,16 +144,6 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
-		C92321FF1B27E2D000BECEE3 /* NSObject+RequestStatusHandle */ = {
-			isa = PBXGroup;
-			children = (
-				C92322001B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.h */,
-				C92322011B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.m */,
-			);
-			name = "NSObject+RequestStatusHandle";
-			path = "NSObject+ RequestStatusHandle";
-			sourceTree = "<group>";
-		};
 		C9811A3E1B203CB100920B44 = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +237,6 @@
 			isa = PBXGroup;
 			children = (
 				C9E592211B438EDC00453441 /* UIViewController+RequestStatusView */,
-				C92321FF1B27E2D000BECEE3 /* NSObject+RequestStatusHandle */,
 				C92321F71B26CBB700BECEE3 /* YTKRequest+ReactiveCocoa */,
 			);
 			name = "Request+View";
@@ -426,7 +412,6 @@
 				C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */,
 				C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */,
 				C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */,
-				C92322021B27E2DB00BECEE3 /* NSObject+RequestStatusHandle.m in Sources */,
 				C9E592241B438F1100453441 /* UIViewController+RequestStatusView.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
 				C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */,

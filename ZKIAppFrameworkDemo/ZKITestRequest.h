@@ -9,6 +9,6 @@
 #import "YTKRequest.h"
 #import "YTKRequest+RecativeCocoa.h"
 
-@interface ZKITestRequest : YTKRequest
+@interface ZKITestRequest : YTKRequest <NSObjectBuilderProtocol>
 
 @end

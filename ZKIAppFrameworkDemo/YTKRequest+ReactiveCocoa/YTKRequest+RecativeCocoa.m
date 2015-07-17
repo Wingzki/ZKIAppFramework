@@ -7,45 +7,143 @@
 //
 
 #import "YTKRequest+RecativeCocoa.h"
+#import <objc/runtime.h>
 
-@interface YTKRequest ()
+@implementation NSObject (RequestStatusHandle)
+
+static const char *varKey = "requestStatusSiganl";
+
+- (RACSubject *)requestStatusSiganl {
+    
+    RACSubject *temp = (RACSubject *)objc_getAssociatedObject(self, &varKey);
+    
+    if (!temp) {
+        
+        self.requestStatusSiganl = [[RACSubject alloc] init];
+        
+    }
+    
+    return (RACSubject *)objc_getAssociatedObject(self, &varKey);
+}
+
+- (void)setRequestStatusSiganl:(RACSubject *)requestStatusSiganl {
+    objc_setAssociatedObject(self, &varKey, requestStatusSiganl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
 
 @end
 
+
 @implementation YTKRequest (RecativeCocoa)
 
-- (RACSignal *)rac_start {
-        
-    RACSubject *requestStatusSignal = [[RACSubject alloc] init];
+- (RACSignal *)rac_request {
     
-    [self startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
+    RACSignal *requestSiganl = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
-        [requestStatusSignal sendNext:@(NO)];
+        [subscriber sendNext:@(YES)];
         
-        if ([self respondsToSelector:@selector(responseDataHandle:racSubject:)]) {
+        [self startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
             
-            [requestStatusSignal sendNext:[self responseDataHandle:request.responseJSONObject racSubject:requestStatusSignal]];
+            [subscriber sendNext:@(NO)];
             
-        }else {
+            if ([request respondsToSelector:@selector(responseDataHandle:racSubject:)]) {
+                
+                [subscriber sendNext:[self responseDataHandle:request.responseJSONObject racSubject:subscriber]];
+                
+            }else {
+                
+                [subscriber sendNext:request.responseJSONObject];
+                
+            }
             
-            [requestStatusSignal sendNext:request.responseJSONObject];
+            [subscriber sendCompleted];
             
-        }
+        } failure:^(YTKBaseRequest *request) {
+            
+            [subscriber sendNext:@(NO)];
+            
+            NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:request.responseStatusCode userInfo:@{@"Request": request}];
+            
+            [subscriber sendError:error];
+            
+        }];
         
-        [requestStatusSignal sendCompleted];
-        
-    } failure:^(YTKBaseRequest *request) {
-        
-        [requestStatusSignal sendNext:@(NO)];
-        
-        NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:request.responseStatusCode userInfo:@{@"Request": request}];
-        
-        [requestStatusSignal sendError:error];
+        return [RACDisposable disposableWithBlock:^{
+            
+            [self stop];
+            
+        }];
         
     }];
     
-    return [requestStatusSignal startWith:@(YES)];
+    return [requestSiganl replay];
     
 }
 
 @end
+
+
+@implementation RACSignal (RequestSignal)
+
+- (void)subscribeRequestSignalWith:(RACSubject *)subject
+                    isShowActivity:(BOOL)isShowActivity
+                   isShowErrorView:(BOOL)isShowErrorView
+                       emptyHandle:(NSInteger (^)(id value))emptyBlock
+                           success:(void (^)(id value))successBlock; {
+    
+    [[self filter:^BOOL(id value) {
+        
+        if ([value isKindOfClass:[NSNumber class]]) {
+            return isShowActivity;
+        }
+        
+        if ([value isKindOfClass:[NSDictionary class]]) {
+            return YES;
+        }
+        
+        return YES;
+        
+    }] subscribeNext:^(id x) {
+        
+        if ([x isKindOfClass:[NSNumber class]]) {
+            
+            if ([x boolValue]) {
+                
+                [subject sendNext:@(RequestStatusShowActivity)];
+                
+            }else {
+                
+                [subject sendNext:@(RequestStatusHideActivity)];
+                
+            }
+            
+        }
+        
+        if ([x isKindOfClass:[NSDictionary class]] || [x isKindOfClass:[NSArray class]]) {
+            
+            if (emptyBlock) {
+                
+                NSInteger count = emptyBlock(x);
+                
+                if (count == 0) {
+                    
+                    [subject sendNext:@(RequestStatusShowEmptyView)];
+                    
+                }
+                
+            }
+            
+            successBlock(x);
+            
+        }
+        
+        
+    } error:^(NSError *error) {
+        
+        [self.requestStatusSiganl sendNext:@(RequestStatusShowErrorView)];
+        
+    }];
+    
+}
+
+@end
+
