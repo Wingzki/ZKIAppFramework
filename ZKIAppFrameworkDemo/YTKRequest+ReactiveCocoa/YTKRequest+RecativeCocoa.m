@@ -84,66 +84,82 @@ static const char *varKey = "requestStatusSiganl";
 
 @implementation RACSignal (RequestSignal)
 
-- (void)subscribeRequestSignalWith:(RACSubject *)subject
-                    isShowActivity:(BOOL)isShowActivity
-                   isShowErrorView:(BOOL)isShowErrorView
-                       emptyHandle:(NSInteger (^)(id value))emptyBlock
-                           success:(void (^)(id value))successBlock; {
+- (RACSignal *)connectRequestSignalWith:(RACSubject *)subject
+                         isShowActivity:(BOOL)isShowActivity
+                        isShowErrorView:(BOOL)isShowErrorView
+                            emptyHandle:(NSInteger (^)(id value))emptyBlock {
     
-    [[self filter:^BOOL(id value) {
+    RACSignal *tempSignal = [[self filter:^BOOL(id value) {
         
         if ([value isKindOfClass:[NSNumber class]]) {
+            
             return isShowActivity;
-        }
-        
-        if ([value isKindOfClass:[NSDictionary class]]) {
-            return YES;
+            
         }
         
         return YES;
         
-    }] subscribeNext:^(id x) {
+    }] map:^id(id value) {
         
-        if ([x isKindOfClass:[NSNumber class]]) {
+        if ([value isKindOfClass:[NSNumber class]]) {
             
-            if ([x boolValue]) {
+            if ([value boolValue]) {
                 
-                [subject sendNext:@(RequestStatusShowActivity)];
+                return @(RequestStatusShowActivity);
                 
             }else {
                 
-                [subject sendNext:@(RequestStatusHideActivity)];
+                return @(RequestStatusHideActivity);
                 
             }
             
         }
         
-        if ([x isKindOfClass:[NSDictionary class]] || [x isKindOfClass:[NSArray class]]) {
+        if (emptyBlock) {
             
-            if (emptyBlock) {
-                
-                NSInteger count = emptyBlock(x);
-                
-                if (count == 0) {
-                    
-                    [subject sendNext:@(RequestStatusShowEmptyView)];
-                    
-                }
-                
+            if (emptyBlock(value) == 0) {
+                return @(RequestStatusShowEmptyView);
             }
-            
-            successBlock(x);
             
         }
         
+        return nil;
+        
+    }];
+    
+    if (isShowErrorView) {
+        
+        [tempSignal subscribeError:^(NSError *error) {
+            
+            [subject sendNext:@(RequestStatusShowErrorView)];
+            
+        }];
+        
+    }
+    
+    [[tempSignal multicast:subject] connect];
+    
+    return self;
+    
+}
+
+- (void)subscribeResultWithClass:(Class)class
+                         success:(void (^)(id value))successBlock {
+    
+    [[self filter:^BOOL(id value) {
+        
+        return [value isKindOfClass:class];
+        
+    }] subscribeNext:^(id x) {
+        
+        successBlock(x);
         
     } error:^(NSError *error) {
-        
-        [self.requestStatusSiganl sendNext:@(RequestStatusShowErrorView)];
         
     }];
     
 }
+
 
 @end
 

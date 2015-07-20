@@ -34,18 +34,19 @@
         
     }];
     
-    [testRequest.rac_request subscribeRequestSignalWith:self.requestStatusSiganl
-                                         isShowActivity:YES
-                                        isShowErrorView:YES
-                                            emptyHandle:^NSInteger(id value) {
-                                                
-                                                return 0;
-                                                
-                                            } success:^(id value) {
-                                                
-                                                
-                                                
-                                            }];
+    RACSignal *signal = [testRequest.rac_request connectRequestSignalWith:self.requestStatusSiganl
+                                                           isShowActivity:YES
+                                                          isShowErrorView:YES
+                                                              emptyHandle:^NSInteger(id value) {
+                                                                  
+                                                                  return 0;
+                                                                  
+                                                              }];
+    
+    [signal subscribeResultWithClass:[NSDictionary class] success:^(id value) {
+        
+    }];
+    
     
     
 }

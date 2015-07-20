@@ -47,11 +47,13 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 
 @interface RACSignal (RequestSignal)
 
-- (void)subscribeRequestSignalWith:(RACSubject *)subject
-                    isShowActivity:(BOOL)isShowActivity
-                   isShowErrorView:(BOOL)isShowErrorView
-                       emptyHandle:(NSInteger (^)(id value))emptyBlock
-                           success:(void (^)(id value))successBlock;
+- (RACSignal *)connectRequestSignalWith:(RACSubject *)subject
+                         isShowActivity:(BOOL)isShowActivity
+                        isShowErrorView:(BOOL)isShowErrorView
+                            emptyHandle:(NSInteger (^)(id value))emptyBlock;
+
+- (void)subscribeResultWithClass:(Class)class
+                         success:(void (^)(id value))successBlock;
 
 
 @end
