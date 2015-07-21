@@ -43,11 +43,11 @@
                                                                   
                                                               }];
     
-    [signal subscribeResultWithClass:[NSDictionary class] success:^(id value) {
+    [signal subscribeResponseWithClass:[NSDictionary class] success:^(id value) {
+        
+    } error:^(NSError *error) {
         
     }];
-    
-    
     
 }
 

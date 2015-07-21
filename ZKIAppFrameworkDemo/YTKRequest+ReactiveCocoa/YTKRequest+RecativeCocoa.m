@@ -130,9 +130,9 @@ static const char *varKey = "requestStatusSiganl";
     
     if (isShowErrorView) {
         
-        [[[[[self materialize] filter:^BOOL(id value) {
+        [[[[[self materialize] filter:^BOOL(RACEvent *value) {
             
-            return [value isKindOfClass:[RACEvent class]];
+            return (value.eventType == RACEventTypeError);
             
         }] map:^id(id value) {
             
@@ -146,18 +146,27 @@ static const char *varKey = "requestStatusSiganl";
     
 }
 
-- (void)subscribeResponseWithClass:(Class)class
-                           success:(void (^)(id value))successBlock {
+- (void)subscribeResponseWithClass:(Class)responseClass
+                           success:(void (^)(id value))successBlock
+                             error:(void (^)(NSError *error))errorBlock {
     
     [[self filter:^BOOL(id value) {
         
-        return [value isKindOfClass:class];
+        return [value isKindOfClass:responseClass];
         
     }] subscribeNext:^(id x) {
         
-        successBlock(x);
+        if (successBlock) {
+            
+            successBlock(x);
+            
+        }
         
     } error:^(NSError *error) {
+        
+        if (errorBlock) {
+            errorBlock(error);
+        }
         
     }];
     
