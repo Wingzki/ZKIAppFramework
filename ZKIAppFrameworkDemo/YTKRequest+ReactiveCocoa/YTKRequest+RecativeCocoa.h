@@ -52,8 +52,8 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
                         isShowErrorView:(BOOL)isShowErrorView
                             emptyHandle:(NSInteger (^)(id value))emptyBlock;
 
-- (void)subscribeResultWithClass:(Class)class
-                         success:(void (^)(id value))successBlock;
+- (void)subscribeResponseWithClass:(Class)class
+                           success:(void (^)(id value))successBlock;
 
 
 @end

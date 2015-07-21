@@ -89,7 +89,7 @@ static const char *varKey = "requestStatusSiganl";
                         isShowErrorView:(BOOL)isShowErrorView
                             emptyHandle:(NSInteger (^)(id value))emptyBlock {
     
-    RACSignal *tempSignal = [[self filter:^BOOL(id value) {
+    [[[[self filter:^BOOL(id value) {
         
         if ([value isKindOfClass:[NSNumber class]]) {
             
@@ -125,26 +125,29 @@ static const char *varKey = "requestStatusSiganl";
         
         return nil;
         
-    }];
+    }] multicast:subject] connect];
+    
     
     if (isShowErrorView) {
         
-        [tempSignal subscribeError:^(NSError *error) {
+        [[[[[self materialize] filter:^BOOL(id value) {
             
-            [subject sendNext:@(RequestStatusShowErrorView)];
+            return [value isKindOfClass:[RACEvent class]];
             
-        }];
+        }] map:^id(id value) {
+            
+            return @(RequestStatusShowErrorView);
+            
+        }] multicast:subject] connect];
         
     }
-    
-    [[tempSignal multicast:subject] connect];
     
     return self;
     
 }
 
-- (void)subscribeResultWithClass:(Class)class
-                         success:(void (^)(id value))successBlock {
+- (void)subscribeResponseWithClass:(Class)class
+                           success:(void (^)(id value))successBlock {
     
     [[self filter:^BOOL(id value) {
         
