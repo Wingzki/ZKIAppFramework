@@ -104,19 +104,21 @@ static const char *varKey = "requestStatusSiganl";
         
         if ([value isKindOfClass:[NSNumber class]]) {
             
-            if ([value integerValue] == 0 && [value integerValue] == 1) {
+            RequestStatus status = (RequestStatus)[value integerValue];
+            
+            if (status == RequestStatusShowActivity && status == RequestStatusHideActivity) {
                 
                 return isShowActivity;
                 
             }
             
-            if ([value integerValue] == 2) {
+            if (status == RequestStatusShowEmptyView) {
                 
                 return isShowEmptyView;
                 
             }
             
-            return YES;
+            return NO;
             
         }
         
