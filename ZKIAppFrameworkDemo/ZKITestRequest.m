@@ -38,6 +38,13 @@
 - (id)responseDataHandle:(id)value racSubject:(RACSubject *)subject {
     
     return value;
+    
+}
+
+- (NSInteger)dataEmptyHandle:(id)value {
+    
+    return 0;
+    
 }
 
 @end

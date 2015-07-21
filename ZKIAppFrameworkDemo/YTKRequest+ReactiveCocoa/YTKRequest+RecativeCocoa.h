@@ -36,6 +36,7 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 @optional
 
 - (id)responseDataHandle:(id)value racSubject:(id <RACSubscriber>)subscriber;
+- (NSInteger)dataEmptyHandle:(id)value;
 
 @end
 
@@ -50,7 +51,7 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 - (RACSignal *)connectRequestSignalWith:(RACSubject *)subject
                          isShowActivity:(BOOL)isShowActivity
                         isShowErrorView:(BOOL)isShowErrorView
-                            emptyHandle:(NSInteger (^)(id value))emptyBlock;
+                        isShowEmptyView:(BOOL)isShowEmptyView;
 
 - (void)subscribeResponseWithClass:(Class)responseClass
                            success:(void (^)(id value))successBlock

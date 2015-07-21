@@ -19,11 +19,7 @@
     [[testRequest.rac_request connectRequestSignalWith:self.requestStatusSiganl
                                         isShowActivity:YES
                                        isShowErrorView:YES
-                                           emptyHandle:^NSInteger(id value) {
-                                               
-                                               return 0;
-                                               
-                                           }]
+                                       isShowEmptyView:YES]
      subscribeResponseWithClass:[NSDictionary class] success:^(id value) {
          
      } error:^(NSError *error) {

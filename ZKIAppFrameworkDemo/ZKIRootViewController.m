@@ -34,7 +34,7 @@
         
     }];
     
-    [self handleRequestStatusView:self.viewModel.requestStatusSiganl scrollView:nil];
+    [self handleRequestStatus:self.viewModel.requestStatusSiganl scrollView:nil];
     
     [self.viewModel getData];
     

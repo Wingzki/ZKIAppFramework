@@ -39,27 +39,38 @@ static const char *varKey = "requestStatusSiganl";
     
     RACSignal *requestSiganl = [RACSignal createSignal:^RACDisposable *(id<RACSubscriber> subscriber) {
         
-        [subscriber sendNext:@(YES)];
+        [subscriber sendNext:@(RequestStatusShowActivity)];
         
         [self startWithCompletionBlockWithSuccess:^(YTKBaseRequest *request) {
             
-            [subscriber sendNext:@(NO)];
+            [subscriber sendNext:@(RequestStatusHideActivity)];
+            
+            id value = request.responseJSONObject;
             
             if ([request respondsToSelector:@selector(responseDataHandle:racSubject:)]) {
                 
-                [subscriber sendNext:[self responseDataHandle:request.responseJSONObject racSubject:subscriber]];
+                value = [self responseDataHandle:request.responseJSONObject racSubject:subscriber];
                 
-            }else {
-                
-                [subscriber sendNext:request.responseJSONObject];
+                if ([request respondsToSelector:@selector(dataEmptyHandle:)]) {
+                    
+                    NSInteger count = [self dataEmptyHandle:value];
+                    
+                    if (count == 0) {
+                        
+                        [subscriber sendNext:@(RequestStatusShowEmptyView)];
+                        
+                    }
+                    
+                }
                 
             }
             
+            [subscriber sendNext:value];
             [subscriber sendCompleted];
             
         } failure:^(YTKBaseRequest *request) {
             
-            [subscriber sendNext:@(NO)];
+            [subscriber sendNext:@(RequestStatusHideActivity)];
             
             NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:request.responseStatusCode userInfo:@{@"Request": request}];
             
@@ -87,43 +98,29 @@ static const char *varKey = "requestStatusSiganl";
 - (RACSignal *)connectRequestSignalWith:(RACSubject *)subject
                          isShowActivity:(BOOL)isShowActivity
                         isShowErrorView:(BOOL)isShowErrorView
-                            emptyHandle:(NSInteger (^)(id value))emptyBlock {
+                        isShowEmptyView:(BOOL)isShowEmptyView {
     
-    [[[[self filter:^BOOL(id value) {
+    [[[self filter:^BOOL(id value) {
         
         if ([value isKindOfClass:[NSNumber class]]) {
             
-            return isShowActivity;
-            
-        }
-        
-        return YES;
-        
-    }] map:^id(id value) {
-        
-        if ([value isKindOfClass:[NSNumber class]]) {
-            
-            if ([value boolValue]) {
+            if ([value integerValue] == 0 && [value integerValue] == 1) {
                 
-                return @(RequestStatusShowActivity);
-                
-            }else {
-                
-                return @(RequestStatusHideActivity);
+                return isShowActivity;
                 
             }
             
-        }
-        
-        if (emptyBlock) {
-            
-            if (emptyBlock(value) == 0) {
-                return @(RequestStatusShowEmptyView);
+            if ([value integerValue] == 2) {
+                
+                return isShowEmptyView;
+                
             }
             
+            return YES;
+            
         }
         
-        return nil;
+        return NO;
         
     }] multicast:subject] connect];
     
