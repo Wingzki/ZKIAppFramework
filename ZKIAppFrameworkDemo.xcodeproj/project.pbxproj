@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		18298E09A2A97987C6261565 /* libPods-ZKIAppFrameworkDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A19FD44C85FDE9EA255EC /* libPods-ZKIAppFrameworkDemoTests.a */; };
+		C90B2AAE1B5E28C000DB3821 /* ZKIFooViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C90B2AAD1B5E28C000DB3821 /* ZKIFooViewModel.m */; };
 		C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */; };
 		C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F11B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m */; };
 		C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F51B26C35700BECEE3 /* NSObject+Builder.m */; };
@@ -38,6 +39,8 @@
 		2779178EFC1DC3C5163B17FE /* Pods-ZKIAppFrameworkDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKIAppFrameworkDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZKIAppFrameworkDemoTests/Pods-ZKIAppFrameworkDemoTests.release.xcconfig"; sourceTree = "<group>"; };
 		787D5786881703ADD8550F2A /* Pods-ZKIAppFrameworkDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZKIAppFrameworkDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZKIAppFrameworkDemoTests/Pods-ZKIAppFrameworkDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD7A19FD44C85FDE9EA255EC /* libPods-ZKIAppFrameworkDemoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZKIAppFrameworkDemoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C90B2AAC1B5E28C000DB3821 /* ZKIFooViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIFooViewModel.h; sourceTree = "<group>"; };
+		C90B2AAD1B5E28C000DB3821 /* ZKIFooViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIFooViewModel.m; sourceTree = "<group>"; };
 		C92321ED1B26C0EC00BECEE3 /* ZKIRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIRootViewController.h; sourceTree = "<group>"; };
 		C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIRootViewController.m; sourceTree = "<group>"; };
 		C92321F01B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+NavigationWithBuilder.h"; sourceTree = "<group>"; };
@@ -142,6 +145,8 @@
 				C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */,
 				C92321FC1B26D2BA00BECEE3 /* ZKITestRequest.h */,
 				C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */,
+				C90B2AAC1B5E28C000DB3821 /* ZKIFooViewModel.h */,
+				C90B2AAD1B5E28C000DB3821 /* ZKIFooViewModel.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -408,6 +413,7 @@
 				C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */,
 				C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */,
 				C961E0991B594D4400403EF5 /* UIViewController+RequestStatusView.m in Sources */,
+				C90B2AAE1B5E28C000DB3821 /* ZKIFooViewModel.m in Sources */,
 				C9811A4D1B203CB100920B44 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

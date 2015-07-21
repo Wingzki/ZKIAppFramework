@@ -7,10 +7,12 @@
 //
 
 #import "ZKIRootViewController.h"
-#import "ZKITestRequest.h"
+#import "ZKIFooViewModel.h"
 #import "UIViewController+RequestStatusView.h"
 
 @interface ZKIRootViewController () <RequestStatusViewProtocol>
+
+@property (strong, nonatomic) ZKIFooViewModel *viewModel;
 
 @end
 
@@ -28,25 +30,14 @@
     
     self.navigationItem.title = self.titleText;
     
-    [self handleRequestStatusView:self.requestStatusSiganl scrollView:nil];
-    
-    ZKITestRequest *testRequest = [ZKITestRequest createWithBuilder:^(ZKITestRequest *builder) {
+    self.viewModel = [ZKIFooViewModel createWithBuilder:^(id<NSObjectBuilderProtocol> builder) {
         
     }];
     
-    [[testRequest.rac_request connectRequestSignalWith:self.requestStatusSiganl
-                                        isShowActivity:YES
-                                       isShowErrorView:YES
-                                           emptyHandle:^NSInteger(id value) {
-                                               
-                                               return 0;
-                                               
-                                           }]
-     subscribeResponseWithClass:[NSDictionary class] success:^(id value) {
-         
-     } error:^(NSError *error) {
-         
-     }];
+    [self handleRequestStatusView:self.viewModel.requestStatusSiganl scrollView:nil];
+    
+    [self.viewModel getData];
+    
     
 }
 

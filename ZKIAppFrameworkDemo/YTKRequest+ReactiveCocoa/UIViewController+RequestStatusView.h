@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "YTKRequest+RecativeCocoa.h"
+#import "ReactiveCocoa.h"
+#import "RACEXTScope.h"
 
 @protocol RequestStatusViewProtocol <NSObject>
 

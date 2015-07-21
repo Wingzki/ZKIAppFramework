@@ -7,6 +7,7 @@
 //
 
 #import "UIViewController+RequestStatusView.h"
+#import "YTKRequest+RecativeCocoa.h"
 
 @interface UIViewController ()
 
