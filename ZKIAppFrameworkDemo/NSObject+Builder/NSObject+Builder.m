@@ -13,7 +13,7 @@
 + (instancetype)createWithBuilder:(BuilderBlock)block {
     
     id objc = [[self alloc] init];
-
+    
     block(objc);
     
     if ([objc respondsToSelector:@selector(build)]) {

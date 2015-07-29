@@ -30,11 +30,21 @@
     
     self.navigationItem.title = self.titleText;
     
-    self.viewModel = [ZKIFooViewModel createWithBuilder:^(id<NSObjectBuilderProtocol> builder) {
+    @weakify(self)
+    [[RACObserve(self, viewModel) filter:^BOOL(id value) {
+        
+        return value;
+        
+    }] subscribeNext:^(id x) {
+        @strongify(self)
+        
+        [self handleRequestStatus:self.viewModel.requestStatusSiganl scrollView:nil];
         
     }];
     
-    [self handleRequestStatus:self.viewModel.requestStatusSiganl scrollView:nil];
+    self.viewModel = [ZKIFooViewModel createWithBuilder:^(id<NSObjectBuilderProtocol> builder) {
+        
+    }];
     
     [self.viewModel getData];
     
