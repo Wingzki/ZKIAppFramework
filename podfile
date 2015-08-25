@@ -5,6 +5,7 @@ pod "Masonry"
 pod "Reachability"
 pod "JSONModel"
 pod "YTKNetwork"
+pod 'FMDB'
 
 target :ZKIAppFrameworkDemoTests, :exclusive => true do
   pod 'Kiwi'

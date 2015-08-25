@@ -10,6 +10,8 @@
 #import "ZKIFooViewModel.h"
 #import "UIViewController+RequestStatusView.h"
 
+#import "FMDB.h"
+
 @interface ZKIRootViewController () <RequestStatusViewProtocol>
 
 @property (strong, nonatomic) ZKIFooViewModel *viewModel;
@@ -47,7 +49,6 @@
     }];
     
     [self.viewModel getData];
-    
     
 }
 

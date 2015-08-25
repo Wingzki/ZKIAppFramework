@@ -22,6 +22,11 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FMDB (2.5):
+    - FMDB/standard (= 2.5)
+  - FMDB/common (2.5)
+  - FMDB/standard (2.5):
+    - FMDB/common
   - JSONModel (1.1.0)
   - Kiwi (2.3.1)
   - Masonry (0.6.2)
@@ -38,6 +43,7 @@ PODS:
     - AFNetworking (~> 2.0)
 
 DEPENDENCIES:
+  - FMDB
   - JSONModel
   - Kiwi
   - Masonry
@@ -48,6 +54,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
@@ -55,4 +62,4 @@ SPEC CHECKSUMS:
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YTKNetwork: 3f163c181ce5f03d52cf88f39d6757f46894280c
 
-COCOAPODS: 0.37.2
+COCOAPODS: 0.38.2

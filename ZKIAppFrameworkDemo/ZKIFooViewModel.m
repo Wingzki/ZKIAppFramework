@@ -7,6 +7,7 @@
 //
 
 #import "ZKIFooViewModel.h"
+#import <objc/runtime.h>
 
 @implementation ZKIFooViewModel
 
