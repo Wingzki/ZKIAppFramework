@@ -11,8 +11,11 @@
 #import "UIViewController+RequestStatusView.h"
 
 #import "FMDB.h"
+#import <objc/runtime.h>
 
-@interface ZKIRootViewController () <RequestStatusViewProtocol>
+@interface ZKIRootViewController () <RequestStatusViewProtocol> {
+    
+}
 
 @property (strong, nonatomic) ZKIFooViewModel *viewModel;
 
@@ -49,6 +52,10 @@
     }];
     
     [self.viewModel getData];
+    
+}
+
+- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     
 }
 

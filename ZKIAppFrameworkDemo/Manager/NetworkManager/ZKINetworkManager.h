@@ -8,16 +8,19 @@
 
 #import <Foundation/Foundation.h>
 
-#import "Reachability.h"
+#import "AFNetworkReachabilityManager.h"
+
 #import "ReactiveCocoa.h"
 #import "RACEXTScope.h"
 
 @interface ZKINetworkManager : NSObject
 
-@property (assign, nonatomic, readonly) NetworkStatus currentReachabilityStatus;
+@property (assign, nonatomic, readonly) AFNetworkReachabilityStatus currentReachabilityStatus;
 
 + (ZKINetworkManager *)shareManager;
 
 - (RACSignal *)rac_currentReachabilityStatus;
+
+- (void)start;
 
 @end

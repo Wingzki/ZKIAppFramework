@@ -32,7 +32,6 @@ static const char *varKey = "requestStatusSiganl";
 
 @end
 
-
 @implementation YTKRequest (RecativeCocoa)
 
 - (RACSignal *)rac_request {

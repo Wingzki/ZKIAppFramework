@@ -12,8 +12,8 @@
 
 @interface ZKINetworkManager ()
 
-@property (strong, nonatomic) Reachability *reachability;
-@property (strong, nonatomic) RACSubject   *currentReachabilityStatusSignal;
+@property (strong, nonatomic, readwrite) RACSubject *currentReachabilityStatusSignal;
+@property (assign, nonatomic, readwrite) AFNetworkReachabilityStatus currentReachabilityStatus;
 
 @end
 
@@ -38,7 +38,7 @@
     self = [super init];
     if (self) {
         
-        _reachability = [Reachability reachabilityWithHostName:NetworkHostName];
+        [[AFNetworkReachabilityManager sharedManager] startMonitoring];
         
     }
     return self;
@@ -53,39 +53,32 @@
         self.currentReachabilityStatusSignal = [RACSubject subject];
         [self.currentReachabilityStatusSignal takeUntil:self.rac_willDeallocSignal];
         
-        self.reachability.reachableBlock = ^(Reachability *reach) {
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-               @strongify(self)
-                
-                if (reach.currentReachabilityStatus != _currentReachabilityStatus) {
-                    
-                    _currentReachabilityStatus = reach.currentReachabilityStatus;
-                    
-                    [self.currentReachabilityStatusSignal sendNext:@(reach.currentReachabilityStatus)];
-                }
-                
-            });
-            
-        };
+        self.currentReachabilityStatus = [AFNetworkReachabilityManager sharedManager].networkReachabilityStatus;
         
-        self.reachability.unreachableBlock = ^(Reachability *reach) {
+        [[[[NSNotificationCenter defaultCenter] rac_addObserverForName:AFNetworkingReachabilityDidChangeNotification object:nil] takeUntil:self.rac_willDeallocSignal] subscribeNext:^(NSNotification *x) {
             @strongify(self)
             
-            if (reach.currentReachabilityStatus != _currentReachabilityStatus) {
+            AFNetworkReachabilityStatus status = [x.userInfo[AFNetworkingReachabilityNotificationStatusItem] integerValue];
+            
+            if (self.currentReachabilityStatus != status) {
                 
-                _currentReachabilityStatus = reach.currentReachabilityStatus;
+                self.currentReachabilityStatus = status;
                 
-                [self.currentReachabilityStatusSignal sendNext:@(reach.currentReachabilityStatus)];
+                [self.currentReachabilityStatusSignal sendNext:@(status)];
+                
             }
             
-        };
-        
-        [self.reachability startNotifier];
+        }];
         
     }
     
     return self.currentReachabilityStatusSignal;
+    
+}
+
+- (void)start {
+    
+    [self rac_currentReachabilityStatus];
     
 }
 

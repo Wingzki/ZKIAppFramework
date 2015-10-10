@@ -21,7 +21,9 @@
     
 //    初始化网络状态监测
     [[[ZKINetworkManager shareManager] rac_currentReachabilityStatus] subscribeNext:^(NSNumber *status) {
+        
         NSLog(@"ZKINetworkManager = %@", status);
+        
     }];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

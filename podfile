@@ -6,6 +6,7 @@ pod "Reachability"
 pod "JSONModel"
 pod "YTKNetwork"
 pod 'FMDB'
+pod 'SPatch'
 
 target :ZKIAppFrameworkDemoTests, :exclusive => true do
   pod 'Kiwi'
