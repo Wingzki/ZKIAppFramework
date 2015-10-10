@@ -2,11 +2,9 @@ platform :ios, '7.0'
 
 pod "ReactiveCocoa"
 pod "Masonry"
-pod "Reachability"
 pod "JSONModel"
 pod "YTKNetwork"
 pod 'FMDB'
-pod 'SPatch'
 
 target :ZKIAppFrameworkDemoTests, :exclusive => true do
   pod 'Kiwi'

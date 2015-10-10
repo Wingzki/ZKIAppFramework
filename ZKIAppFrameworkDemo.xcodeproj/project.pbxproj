@@ -175,10 +175,10 @@
 			isa = PBXGroup;
 			children = (
 				C9E592251B4397BE00453441 /* Request+View */,
-				C92321FB1B26D28200BECEE3 /* Test */,
 				C92321F31B26C35700BECEE3 /* NSObject+Builder */,
 				C92321E91B26BDFD00BECEE3 /* UIViewController+NavigationWithBuilder */,
 				C9811A731B20426600920B44 /* Manager */,
+				C92321FB1B26D28200BECEE3 /* Test */,
 				C9811A4E1B203CB100920B44 /* AppDelegate.h */,
 				C9811A4F1B203CB100920B44 /* AppDelegate.m */,
 				C9811A5A1B203CB100920B44 /* Images.xcassets */,

@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "58651D122020948E81F2F5E5"
+               BlueprintIdentifier = "62E530E1AC548E953E4B8654"
                BuildableName = "libPods-ZKIAppFrameworkDemoTests.a"
                BlueprintName = "Pods-ZKIAppFrameworkDemoTests"
                ReferencedContainer = "container:Pods.xcodeproj">

@@ -30,7 +30,6 @@ PODS:
   - JSONModel (1.1.0)
   - Kiwi (2.3.1)
   - Masonry (0.6.2)
-  - Reachability (3.2)
   - ReactiveCocoa (2.5):
     - ReactiveCocoa/UI (= 2.5)
   - ReactiveCocoa/Core (2.5):
@@ -47,7 +46,6 @@ DEPENDENCIES:
   - JSONModel
   - Kiwi
   - Masonry
-  - Reachability
   - ReactiveCocoa
   - YTKNetwork
 
@@ -58,7 +56,6 @@ SPEC CHECKSUMS:
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
-  Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YTKNetwork: 3f163c181ce5f03d52cf88f39d6757f46894280c
 
