@@ -11,7 +11,15 @@
 
 @implementation ZKIFooViewModel
 
+- (instancetype)build {
+    
+    return self;
+    
+}
+
 - (void)getData {
+    
+    [self.delegate changeStatusWithDataStatus:ZKIDataStatusNull viewStatus:ZKIViewStatusLoading];
     
     ZKITestRequest *testRequest = [ZKITestRequest createWithBuilder:^(ZKITestRequest *builder) {
         
@@ -23,7 +31,11 @@
                                        isShowEmptyView:YES]
      subscribeResponseWithClass:[NSDictionary class] success:^(id value) {
          
+         [self.delegate changeStatusWithDataStatus:ZKIDataStatusA viewStatus:ZKIViewStatusNothing];
+         
      } error:^(NSError *error) {
+         
+         [self.delegate changeStatusWithDataStatus:ZKIDataStatusNull viewStatus:ZKIViewStatusNetworkError];
          
      }];
     

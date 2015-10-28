@@ -9,11 +9,12 @@
 #import "ZKIRootViewController.h"
 #import "ZKIFooViewModel.h"
 #import "UIViewController+RequestStatusView.h"
+#import "UIViewController+IsDealloc.h"
 
 #import "FMDB.h"
 #import <objc/runtime.h>
 
-@interface ZKIRootViewController () <RequestStatusViewProtocol> {
+@interface ZKIRootViewController () <RequestStatusViewProtocol, ZKIChangeStatusProtocol> {
     
 }
 
@@ -47,7 +48,9 @@
         
     }];
     
-    self.viewModel = [ZKIFooViewModel createWithBuilder:^(id<NSObjectBuilderProtocol> builder) {
+    self.viewModel = [ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
+        
+        builder.delegate = self;
         
     }];
     
@@ -56,6 +59,11 @@
 }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
+    
+}
+
+- (void)changeStatusWithDataStatus:(ZKIDataStatus)dataStatus
+                        viewStatus:(ZKIViewStatus)viewStatus {
     
 }
 
