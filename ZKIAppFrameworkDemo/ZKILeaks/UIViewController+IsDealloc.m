@@ -16,7 +16,7 @@
 
 @implementation UIViewController (IsDealloc)
 
-+ (void) swizzleInstanceSelector:(SEL)originalSelector
++ (void)swizzleInstanceSelector:(SEL)originalSelector
                  withNewSelector:(SEL)newSelector
 {
     Method originalMethod = class_getInstanceMethod(self, originalSelector);
@@ -39,10 +39,16 @@
 
 +(void)load {
 #ifdef DEBUG
-    [self swizzleInstanceSelector:@selector(viewDidLoad) withNewSelector:@selector(zkiViewDidLoad)];
+    [self swizzleInstanceSelector:@selector(init) withNewSelector:@selector(zkiInit)];
 #endif
 }
 
+- (instancetype)zkiInit {
+    
+    [[ZKIAllocedObjectManager shareManager] addAllocedObject:self];
+    
+    return [self zkiInit];
+}
 
 - (void)zkiViewDidLoad {
     
