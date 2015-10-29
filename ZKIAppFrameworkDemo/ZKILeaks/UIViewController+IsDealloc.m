@@ -7,12 +7,9 @@
 //
 
 #import "UIViewController+IsDealloc.h"
-#import <objc/runtime.h>
-
-#import "ReactiveCocoa.h"
-#import "RACEXTScope.h"
-
 #import "ZKIAllocedObjectManager.h"
+
+#import <objc/runtime.h>
 
 @implementation UIViewController (IsDealloc)
 
@@ -40,6 +37,7 @@
 +(void)load {
 #ifdef DEBUG
     [self swizzleInstanceSelector:@selector(init) withNewSelector:@selector(zkiInit)];
+    [self swizzleInstanceSelector:NSSelectorFromString(@"dealloc") withNewSelector:@selector(zkiDealloc)];
 #endif
 }
 
@@ -47,20 +45,16 @@
     
     [[ZKIAllocedObjectManager shareManager] addAllocedObject:self];
     
+    [[ZKIAllocedObjectManager shareManager] moveMainButtonToFront];
+    
     return [self zkiInit];
 }
 
-- (void)zkiViewDidLoad {
+- (void)zkiDealloc {
     
-    [[ZKIAllocedObjectManager shareManager] addAllocedObject:self];
+    [[ZKIAllocedObjectManager shareManager] markAllocedObjectDealloc:self];
     
-    [self.rac_willDeallocSignal subscribeNext:^(id x) {
-        
-        [[ZKIAllocedObjectManager shareManager] markAllocedObjectDealloc:self];
-        
-    }];
-    
-    [self zkiViewDidLoad];
+    [self zkiDealloc];
     
 }
 

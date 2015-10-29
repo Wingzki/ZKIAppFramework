@@ -25,15 +25,18 @@
         
     }];
     
+    @weakify(self)
     [[testRequest.rac_request connectRequestSignalWith:self.requestStatusSiganl
                                         isShowActivity:YES
                                        isShowErrorView:YES
                                        isShowEmptyView:YES]
      subscribeResponseWithClass:[NSDictionary class] success:^(id value) {
+         @strongify(self)
          
          [self.delegate changeStatusWithDataStatus:ZKIDataStatusA viewStatus:ZKIViewStatusNothing];
          
      } error:^(NSError *error) {
+         @strongify(self)
          
          [self.delegate changeStatusWithDataStatus:ZKIDataStatusNull viewStatus:ZKIViewStatusNetworkError];
          

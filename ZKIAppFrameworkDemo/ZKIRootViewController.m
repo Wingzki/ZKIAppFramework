@@ -24,6 +24,11 @@
 
 @implementation ZKIRootViewController
 
+- (void)dealloc
+{
+    NSLog(@"Dealloc");
+}
+
 - (instancetype)build {
     
     NSAssert(self.titleText, @"text没有初始化");
@@ -35,6 +40,8 @@
     [super viewDidLoad];
     
     self.navigationItem.title = self.titleText;
+    
+    [self setupNavigationBar];
     
     @weakify(self)
     [[RACObserve(self, viewModel) filter:^BOOL(id value) {
@@ -66,6 +73,31 @@
                         viewStatus:(ZKIViewStatus)viewStatus {
     
 }
+
+- (void)setupNavigationBar {
+    
+    UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 100)];
+    [cancelButton setTitle:@"下一页" forState:UIControlStateNormal];
+    [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    
+    @weakify(self)
+    cancelButton.rac_command = [[RACCommand alloc] initWithSignalBlock:^RACSignal *(id input) {
+        @strongify(self)
+        
+        ZKIRootViewController *tempVC = [[ZKIRootViewController alloc] init];
+        
+        [self.navigationController pushViewController:tempVC animated:YES];
+        
+        return [RACSignal empty];
+    }];
+    
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
+    
+    self.navigationItem.rightBarButtonItem = item;
+    
+}
+
 
 #pragma mark - RequestStatusViewProtocol
 
@@ -105,14 +137,6 @@
         
     }else {
         
-        
-    }
-    
-}
-
-+ (void)load {
-    
-    if ([self conformsToProtocol:@protocol(RequestStatusViewProtocol)]) {
         
     }
     

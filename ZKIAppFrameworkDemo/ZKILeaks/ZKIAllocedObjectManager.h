@@ -13,9 +13,13 @@
 
 @interface ZKIAllocedObjectManager : NSObject
 
-@property (strong, nonatomic, readonly) NSArray *allocedObjectArray;
+@property (strong, nonatomic, readonly) NSArray  *allocedObjectArray;
+@property (strong, nonatomic, readonly) UIButton *mainButton;
+@property (strong, nonatomic, readonly) NSString *nowVCName;
 
 + (instancetype)shareManager;
+
+- (void)moveMainButtonToFront;
 
 - (void)addAllocedObject:(UIViewController *)viewController;
 - (void)markAllocedObjectDealloc:(UIViewController *)viewController;

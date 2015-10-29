@@ -24,6 +24,7 @@
 		C9B50C0A1BE0C9D8009F2499 /* ZKIAllocedObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C091BE0C9D8009F2499 /* ZKIAllocedObjectManager.m */; };
 		C9B50C0D1BE0CE82009F2499 /* ZKIAllocedObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C0C1BE0CE82009F2499 /* ZKIAllocedObjectModel.m */; };
 		C9B50C101BE0D076009F2499 /* UIViewController+IsDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C0F1BE0D076009F2499 /* UIViewController+IsDealloc.m */; };
+		C9B50C131BE0D88B009F2499 /* ZKIAllocedObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */; };
 		D3EE81E264A1EB221F0B9026 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09197E1D2EF7D0C0CC3149E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +75,8 @@
 		C9B50C0C1BE0CE82009F2499 /* ZKIAllocedObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIAllocedObjectModel.m; sourceTree = "<group>"; };
 		C9B50C0E1BE0D076009F2499 /* UIViewController+IsDealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IsDealloc.h"; sourceTree = "<group>"; };
 		C9B50C0F1BE0D076009F2499 /* UIViewController+IsDealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IsDealloc.m"; sourceTree = "<group>"; };
+		C9B50C111BE0D88B009F2499 /* ZKIAllocedObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIAllocedObjectViewController.h; sourceTree = "<group>"; };
+		C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIAllocedObjectViewController.m; sourceTree = "<group>"; };
 		CA437D8C6EEDDBBDE3D8803A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F04852702D01520BCB4EFFE6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -250,6 +253,8 @@
 				C9B50C0C1BE0CE82009F2499 /* ZKIAllocedObjectModel.m */,
 				C9B50C0E1BE0D076009F2499 /* UIViewController+IsDealloc.h */,
 				C9B50C0F1BE0D076009F2499 /* UIViewController+IsDealloc.m */,
+				C9B50C111BE0D88B009F2499 /* ZKIAllocedObjectViewController.h */,
+				C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */,
 			);
 			path = ZKILeaks;
 			sourceTree = "<group>";
@@ -431,6 +436,7 @@
 			files = (
 				C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */,
 				C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */,
+				C9B50C131BE0D88B009F2499 /* ZKIAllocedObjectViewController.m in Sources */,
 				C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */,
 				C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
