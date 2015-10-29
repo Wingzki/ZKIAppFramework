@@ -9,7 +9,7 @@
 #import "ZKIRootViewController.h"
 #import "ZKIFooViewModel.h"
 #import "UIViewController+RequestStatusView.h"
-#import "UIViewController+IsDealloc.h"
+#import "UIViewController+Leaks.h"
 
 #import "FMDB.h"
 #import <objc/runtime.h>

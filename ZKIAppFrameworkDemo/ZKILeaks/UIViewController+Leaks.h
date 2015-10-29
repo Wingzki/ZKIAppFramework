@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (IsDealloc)
+@interface UIViewController (Leaks)
 
 @end

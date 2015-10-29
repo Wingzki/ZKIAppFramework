@@ -23,7 +23,7 @@
 		C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A761B20427B00920B44 /* ZKINetworkManager.m */; };
 		C9B50C0A1BE0C9D8009F2499 /* ZKIAllocedObjectManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C091BE0C9D8009F2499 /* ZKIAllocedObjectManager.m */; };
 		C9B50C0D1BE0CE82009F2499 /* ZKIAllocedObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C0C1BE0CE82009F2499 /* ZKIAllocedObjectModel.m */; };
-		C9B50C101BE0D076009F2499 /* UIViewController+IsDealloc.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C0F1BE0D076009F2499 /* UIViewController+IsDealloc.m */; };
+		C9B50C101BE0D076009F2499 /* UIViewController+Leaks.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C0F1BE0D076009F2499 /* UIViewController+Leaks.m */; };
 		C9B50C131BE0D88B009F2499 /* ZKIAllocedObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */; };
 		D3EE81E264A1EB221F0B9026 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09197E1D2EF7D0C0CC3149E6 /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -73,8 +73,8 @@
 		C9B50C091BE0C9D8009F2499 /* ZKIAllocedObjectManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIAllocedObjectManager.m; sourceTree = "<group>"; };
 		C9B50C0B1BE0CE82009F2499 /* ZKIAllocedObjectModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIAllocedObjectModel.h; sourceTree = "<group>"; };
 		C9B50C0C1BE0CE82009F2499 /* ZKIAllocedObjectModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIAllocedObjectModel.m; sourceTree = "<group>"; };
-		C9B50C0E1BE0D076009F2499 /* UIViewController+IsDealloc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+IsDealloc.h"; sourceTree = "<group>"; };
-		C9B50C0F1BE0D076009F2499 /* UIViewController+IsDealloc.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+IsDealloc.m"; sourceTree = "<group>"; };
+		C9B50C0E1BE0D076009F2499 /* UIViewController+Leaks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Leaks.h"; sourceTree = "<group>"; };
+		C9B50C0F1BE0D076009F2499 /* UIViewController+Leaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Leaks.m"; sourceTree = "<group>"; };
 		C9B50C111BE0D88B009F2499 /* ZKIAllocedObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIAllocedObjectViewController.h; sourceTree = "<group>"; };
 		C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIAllocedObjectViewController.m; sourceTree = "<group>"; };
 		CA437D8C6EEDDBBDE3D8803A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,8 +251,8 @@
 				C9B50C091BE0C9D8009F2499 /* ZKIAllocedObjectManager.m */,
 				C9B50C0B1BE0CE82009F2499 /* ZKIAllocedObjectModel.h */,
 				C9B50C0C1BE0CE82009F2499 /* ZKIAllocedObjectModel.m */,
-				C9B50C0E1BE0D076009F2499 /* UIViewController+IsDealloc.h */,
-				C9B50C0F1BE0D076009F2499 /* UIViewController+IsDealloc.m */,
+				C9B50C0E1BE0D076009F2499 /* UIViewController+Leaks.h */,
+				C9B50C0F1BE0D076009F2499 /* UIViewController+Leaks.m */,
 				C9B50C111BE0D88B009F2499 /* ZKIAllocedObjectViewController.h */,
 				C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */,
 			);
@@ -446,7 +446,7 @@
 				C9B50C0D1BE0CE82009F2499 /* ZKIAllocedObjectModel.m in Sources */,
 				C961E0991B594D4400403EF5 /* UIViewController+RequestStatusView.m in Sources */,
 				C90B2AAE1B5E28C000DB3821 /* ZKIFooViewModel.m in Sources */,
-				C9B50C101BE0D076009F2499 /* UIViewController+IsDealloc.m in Sources */,
+				C9B50C101BE0D076009F2499 /* UIViewController+Leaks.m in Sources */,
 				C9811A4D1B203CB100920B44 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

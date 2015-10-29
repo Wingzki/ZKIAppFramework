@@ -42,7 +42,7 @@
         
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         
-        manager.mainButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 500, 50, 50)];
+        manager.mainButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
         manager.mainButton.layer.masksToBounds = YES;
         manager.mainButton.layer.cornerRadius  = 25;
         manager.mainButton.layer.borderColor   = [UIColor greenColor].CGColor;
@@ -63,9 +63,15 @@
 
 - (void)moveMainButtonToFront {
  
+    if (self.mainButton.superview) {
+        
+        [self.mainButton removeFromSuperview];
+        
+    }
+    
     AppDelegate *delegate = [UIApplication sharedApplication].delegate;
     
-    [delegate.window bringSubviewToFront:self.mainButton];
+    [delegate.window addSubview:self.mainButton];
     
 }
 
@@ -103,7 +109,15 @@
         
     }
     
-    [rootVC presentViewController:self.objectNavigationController animated:YES completion:nil];
+    if ([rootVC isKindOfClass:[UINavigationController class]]) {
+        
+        [rootVC.visibleViewController presentViewController:self.objectNavigationController animated:YES completion:nil];
+        
+    }else {
+        
+        [rootVC presentViewController:self.objectNavigationController animated:YES completion:nil];
+        
+    }
     
 }
 

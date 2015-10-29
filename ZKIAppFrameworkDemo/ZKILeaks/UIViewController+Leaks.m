@@ -6,12 +6,12 @@
 //  Copyright © 2015年 Wingzki. All rights reserved.
 //
 
-#import "UIViewController+IsDealloc.h"
+#import "UIViewController+Leaks.h"
 #import "ZKIAllocedObjectManager.h"
 
 #import <objc/runtime.h>
 
-@implementation UIViewController (IsDealloc)
+@implementation UIViewController (Leaks)
 
 + (void)swizzleInstanceSelector:(SEL)originalSelector
                  withNewSelector:(SEL)newSelector
