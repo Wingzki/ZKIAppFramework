@@ -27,8 +27,14 @@
         
     }];
     
+    [self startRequest:testRequest];
+    
+}
+
+- (void)startRequest:(ZKITestRequest *)request {
+ 
     @weakify(self)
-    [[testRequest.rac_request connectRequestSignalWith:self.requestStatusSiganl
+    [[request.rac_request connectRequestSignalWith:self.requestStatusSiganl
                                         isShowActivity:YES
                                        isShowErrorView:YES
                                        isShowEmptyView:YES]

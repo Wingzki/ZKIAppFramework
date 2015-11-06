@@ -15,7 +15,7 @@
 
 - (void)showEmptyView:(BOOL)show;
 
-- (void)showErrorView:(BOOL)show;
+- (void)showErrorView:(BOOL)show request:(ZKITestRequest *)request;
 
 @end
 
@@ -46,14 +46,6 @@
                     
                     break;
                     
-                case RequestStatusShowErrorView:
-                    
-                    if ([self respondsToSelector:@selector(showErrorView:)]) {
-                        [self showErrorView:YES];
-                    }
-                    
-                    break;
-                    
                 case RequestStatusShowEmptyView:
                     
                     if ([self respondsToSelector:@selector(showEmptyView:)]) {
@@ -66,14 +58,12 @@
                     break;
             }
             
-        }
-        
-    }];
-
-    [signal subscribeError:^(NSError *error) {
-        
-        if ([self respondsToSelector:@selector(showErrorView:)]) {
-            [self showErrorView:YES];
+        }else if ([x isKindOfClass:[NSError class]]) {
+            
+            if ([self respondsToSelector:@selector(showErrorView:request:)]) {
+                [self showErrorView:YES request:nil];
+            }
+            
         }
         
     }];

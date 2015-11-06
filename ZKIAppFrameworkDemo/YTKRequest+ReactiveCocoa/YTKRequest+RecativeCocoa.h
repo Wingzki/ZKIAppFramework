@@ -16,8 +16,7 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
     
     RequestStatusShowActivity,
     RequestStatusHideActivity,
-    RequestStatusShowEmptyView,
-    RequestStatusShowErrorView
+    RequestStatusShowEmptyView
     
 };
 

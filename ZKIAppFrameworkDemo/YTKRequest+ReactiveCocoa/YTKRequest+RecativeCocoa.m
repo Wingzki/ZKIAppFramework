@@ -133,7 +133,7 @@ static const char *varKey = "requestStatusSiganl";
         
         [self subscribeError:^(NSError *error) {
             
-            [subject sendNext:@(RequestStatusShowErrorView)];
+            [subject sendNext:error];
             
         }];
         

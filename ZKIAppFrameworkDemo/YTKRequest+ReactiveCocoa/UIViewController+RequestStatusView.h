@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZKITestRequest.h"
 
 #import "ReactiveCocoa.h"
 #import "RACEXTScope.h"
@@ -19,7 +20,7 @@
 
 - (void)showEmptyView:(BOOL)show;
 
-- (void)showErrorView:(BOOL)show;
+- (void)showErrorView:(BOOL)show request:(ZKITestRequest *)request;
 
 @end
 

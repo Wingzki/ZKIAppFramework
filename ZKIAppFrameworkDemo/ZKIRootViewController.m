@@ -129,7 +129,7 @@
     
 }
 
-- (void)showErrorView:(BOOL)show; {
+- (void)showErrorView:(BOOL)show request:(ZKITestRequest *)request; {
     
     if (show) {
         
@@ -137,8 +137,9 @@
         
     }else {
         
-        
     }
+    
+    [self.viewModel startRequest:request];
     
 }
 

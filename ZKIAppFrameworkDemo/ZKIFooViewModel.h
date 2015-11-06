@@ -48,4 +48,6 @@ typedef NS_ENUM(NSUInteger, ZKIViewStatus) {
 
 - (void)getData;
 
+- (void)startRequest:(ZKITestRequest *)request;
+
 @end
