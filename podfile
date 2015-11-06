@@ -5,6 +5,7 @@ pod "Masonry"
 pod "JSONModel"
 pod "YTKNetwork"
 pod 'FMDB'
+pod "YYWebImage"
 
 target :ZKIAppFrameworkDemoTests, :exclusive => true do
   pod 'Kiwi'

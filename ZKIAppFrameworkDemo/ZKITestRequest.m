@@ -8,6 +8,10 @@
 
 #import "ZKITestRequest.h"
 
+@interface ZKITestRequest ()
+
+@end
+
 @implementation ZKITestRequest
 
 - (void)dealloc

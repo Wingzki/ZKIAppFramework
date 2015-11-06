@@ -37,6 +37,8 @@
 
 - (void)setupNavigationBar {
     
+    self.navigationItem.title = @"Leaks";
+    
     UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 60)];
     [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
@@ -46,6 +48,8 @@
         @strongify(self)
         
         [self dismissViewControllerAnimated:YES completion:nil];
+        
+        [ZKIAllocedObjectManager shareManager].isCVShow = NO;
         
         return [RACSignal empty];
     }];

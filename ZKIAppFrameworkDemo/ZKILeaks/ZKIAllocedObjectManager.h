@@ -17,6 +17,8 @@
 @property (strong, nonatomic, readonly) UIButton *mainButton;
 @property (strong, nonatomic, readonly) NSString *nowVCName;
 
+@property (assign, nonatomic) BOOL isCVShow;
+
 + (instancetype)shareManager;
 
 - (void)moveMainButtonToFront;

@@ -9,6 +9,13 @@
 #import "YTKRequest.h"
 #import "YTKRequest+RecativeCocoa.h"
 
-@interface ZKITestRequest : YTKRequest <NSObjectBuilderProtocol>
+@interface ZKITestRequest : YTKRequest <NSObjectBuilderProtocol> {
+    
+@private   NSString *_foo1;
+@public    NSString *_foo2;
+@protected NSString *_foo3;
+    
+}
+
 
 @end

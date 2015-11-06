@@ -23,6 +23,8 @@
     
     ZKITestRequest *testRequest = [ZKITestRequest createWithBuilder:^(ZKITestRequest *builder) {
         
+        builder->_foo2 = @"";
+        
     }];
     
     @weakify(self)

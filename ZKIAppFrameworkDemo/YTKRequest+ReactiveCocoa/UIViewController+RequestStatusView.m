@@ -49,7 +49,7 @@
                 case RequestStatusShowErrorView:
                     
                     if ([self respondsToSelector:@selector(showErrorView:)]) {
-                        [self showErrorView:NO];
+                        [self showErrorView:YES];
                     }
                     
                     break;
@@ -66,6 +66,14 @@
                     break;
             }
             
+        }
+        
+    }];
+
+    [signal subscribeError:^(NSError *error) {
+        
+        if ([self respondsToSelector:@selector(showErrorView:)]) {
+            [self showErrorView:YES];
         }
         
     }];

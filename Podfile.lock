@@ -40,6 +40,7 @@ PODS:
   - YTKNetwork (0.5.0):
     - AFDownloadRequestOperation (~> 2.0)
     - AFNetworking (~> 2.0)
+  - YYWebImage (0.9.0)
 
 DEPENDENCIES:
   - FMDB
@@ -48,6 +49,7 @@ DEPENDENCIES:
   - Masonry
   - ReactiveCocoa
   - YTKNetwork
+  - YYWebImage
 
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
@@ -58,5 +60,6 @@ SPEC CHECKSUMS:
   Masonry: 362e8a1cc0beada4a4c4832d5e863da2a51533be
   ReactiveCocoa: e2db045570aa97c695e7aa97c2bcab222ae51f4a
   YTKNetwork: 3f163c181ce5f03d52cf88f39d6757f46894280c
+  YYWebImage: cf110e753398e97e2db110254e1cbc138735a5dc
 
-COCOAPODS: 0.38.2
+COCOAPODS: 0.39.0

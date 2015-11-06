@@ -54,55 +54,65 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>YYWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>336638FE4485248A52C2A25E990D1F80</key>
+		<key>09FA060F1A0492FB25232F489AC4E573</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>360DD0CC105D0F79522E3473D5AB9985</key>
+		<key>1362514C2970468489FF3745A2325246</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6951DA9871DA259A9AAA6EFC68AEF8EB</key>
+		<key>28EDA0AC3272A77B0575F728B99261BC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7EB730CB558ED1125983B460663D5FB7</key>
+		<key>32DDC26A88486759D537350C898AC632</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8EC620CDC9472D956F4C018713B0D0CF</key>
+		<key>53480ED0BE09FF49E34B1702D485CAAB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9A3D44378CB48DB54BA67009C796103B</key>
+		<key>7923C0BEAB53A459EEB3BA1A581F6BCA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AC520118217E4BA2153D12E69E1490C3</key>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B92A5BC469E1A256C9F98BC17D9155B8</key>
+		<key>B3C760711B585710870482548EF04B3F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E03172A8F449449B94F2FECC4EC8F479</key>
+		<key>C464A94C00D9B960AD6F01929C756364</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E2F74799F9EF79F0CD94AC783D543A73</key>
+		<key>E735744EAAD7BB4A53409D17A00F48AA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F083F18F62359515AF59D09A85F8A4A8</key>
 		<dict>
 			<key>primary</key>
 			<true/>

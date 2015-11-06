@@ -14,8 +14,8 @@
 @implementation UIViewController (Leaks)
 
 + (void)swizzleInstanceSelector:(SEL)originalSelector
-                 withNewSelector:(SEL)newSelector
-{
+                 withNewSelector:(SEL)newSelector {
+    
     Method originalMethod = class_getInstanceMethod(self, originalSelector);
     Method newMethod = class_getInstanceMethod(self, newSelector);
     
@@ -29,12 +29,13 @@
                             newSelector,
                             method_getImplementation(originalMethod),
                             method_getTypeEncoding(originalMethod));
-    } else {
+    }else {
         method_exchangeImplementations(originalMethod, newMethod);
     }
+    
 }
 
-+(void)load {
++ (void)load {
 #ifdef DEBUG
     [self swizzleInstanceSelector:@selector(init) withNewSelector:@selector(zkiInit)];
     [self swizzleInstanceSelector:NSSelectorFromString(@"dealloc") withNewSelector:@selector(zkiDealloc)];

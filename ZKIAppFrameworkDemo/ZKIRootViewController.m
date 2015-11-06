@@ -77,7 +77,7 @@
 - (void)setupNavigationBar {
     
     UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 100)];
-    [cancelButton setTitle:@"下一页" forState:UIControlStateNormal];
+    [cancelButton setTitle:@"next" forState:UIControlStateNormal];
     [cancelButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     
     @weakify(self)

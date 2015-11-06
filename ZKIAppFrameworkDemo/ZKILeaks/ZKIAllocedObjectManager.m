@@ -18,6 +18,8 @@
 @property (strong, nonatomic, readwrite) UIButton *mainButton;
 @property (strong, nonatomic, readwrite) NSString *nowVCName;
 
+@property (assign, nonatomic) BOOL isDrag;
+
 @end
 
 @implementation ZKIAllocedObjectManager
@@ -42,16 +44,16 @@
         
         AppDelegate *delegate = [UIApplication sharedApplication].delegate;
         
-        manager.mainButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+        manager.mainButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 400, 50, 50)];
         manager.mainButton.layer.masksToBounds = YES;
         manager.mainButton.layer.cornerRadius  = 25;
         manager.mainButton.layer.borderColor   = [UIColor greenColor].CGColor;
         manager.mainButton.layer.borderWidth   = 2;
+        manager.mainButton.backgroundColor     = [UIColor whiteColor];
         [manager.mainButton setTitle:@"D" forState:UIControlStateNormal];
         [manager.mainButton setTitleColor:[UIColor greenColor] forState:UIControlStateNormal];
         [manager.mainButton addTarget:manager action:@selector(buttonDrag:event:) forControlEvents:UIControlEventTouchDragInside];
         [manager.mainButton addTarget:manager action:@selector(buttonClicked:) forControlEvents:UIControlEventTouchUpInside];
-        manager.mainButton.backgroundColor = [UIColor whiteColor];
         
         [delegate.window addSubview:manager.mainButton];
         
@@ -85,6 +87,8 @@
         
         sender.center = CGPointMake(point.x, point.y);
         
+        self.isDrag = YES;
+        
     }
     
 }
@@ -109,15 +113,23 @@
         
     }
     
-    if ([rootVC isKindOfClass:[UINavigationController class]]) {
+    if (!self.isDrag && !self.isCVShow) {
         
-        [rootVC.visibleViewController presentViewController:self.objectNavigationController animated:YES completion:nil];
-        
-    }else {
-        
-        [rootVC presentViewController:self.objectNavigationController animated:YES completion:nil];
+        if ([rootVC isKindOfClass:[UINavigationController class]]) {
+            
+            [rootVC.visibleViewController presentViewController:self.objectNavigationController animated:YES completion:nil];
+            
+            self.isCVShow = YES;
+            
+        }else {
+            
+            [rootVC presentViewController:self.objectNavigationController animated:YES completion:nil];
+            
+        }
         
     }
+    
+    self.isDrag = NO;
     
 }
 

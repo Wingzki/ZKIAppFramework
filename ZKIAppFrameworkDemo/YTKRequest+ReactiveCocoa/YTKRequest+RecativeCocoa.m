@@ -99,13 +99,13 @@ static const char *varKey = "requestStatusSiganl";
                         isShowErrorView:(BOOL)isShowErrorView
                         isShowEmptyView:(BOOL)isShowEmptyView {
     
-    [[[self filter:^BOOL(id value) {
+    [[self filter:^BOOL(id value) {
         
         if ([value isKindOfClass:[NSNumber class]]) {
             
             RequestStatus status = (RequestStatus)[value integerValue];
             
-            if (status == RequestStatusShowActivity && status == RequestStatusHideActivity) {
+            if (status == RequestStatusShowActivity || status == RequestStatusHideActivity) {
                 
                 return isShowActivity;
                 
@@ -123,20 +123,19 @@ static const char *varKey = "requestStatusSiganl";
         
         return NO;
         
-    }] multicast:subject] connect];
-    
+    }] subscribeNext:^(id x) {
+        
+        [subject sendNext:x];
+        
+    }];
     
     if (isShowErrorView) {
         
-        [[[[[self materialize] filter:^BOOL(RACEvent *value) {
+        [self subscribeError:^(NSError *error) {
             
-            return (value.eventType == RACEventTypeError);
+            [subject sendNext:@(RequestStatusShowErrorView)];
             
-        }] map:^id(id value) {
-            
-            return @(RequestStatusShowErrorView);
-            
-        }] multicast:subject] connect];
+        }];
         
     }
     
