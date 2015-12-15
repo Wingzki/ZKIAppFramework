@@ -25,7 +25,7 @@
 
 - (NSString *)baseUrl {
     
-    return @"www.baidu.com";
+    return @"http://www.baidu.com";
     
 }
 

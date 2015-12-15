@@ -14,21 +14,11 @@
 
 typedef NS_ENUM(NSUInteger, RequestStatus) {
     
-    RequestStatusShowActivity,
-    RequestStatusHideActivity,
-    RequestStatusShowEmptyView
+    RequestStatusShowActivity  = 1,
+    RequestStatusHideActivity  = 2,
+    RequestStatusShowEmptyView = 3
     
 };
-
-@protocol RequestStatusHandleProtocol <NSObject>
-
-@property (strong, nonatomic) RACSubject *requestStatusSiganl;
-
-@end
-
-@interface NSObject (RequestStatusHandle) <RequestStatusHandleProtocol>
-
-@end
 
 @protocol YTKRequestResponseDataHandleProtocol <NSObject>
 
@@ -41,21 +31,16 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 
 @interface YTKRequest (RecativeCocoa) <YTKRequestResponseDataHandleProtocol>
 
+@property (strong, nonatomic, readonly) RACSubject *requestStatusSiganl;
+
 - (RACSignal *)rac_request;
 
 @end
 
 @interface RACSignal (RequestSignal)
 
-- (RACSignal *)connectRequestSignalWith:(RACSubject *)subject
-                         isShowActivity:(BOOL)isShowActivity
-                        isShowErrorView:(BOOL)isShowErrorView
-                        isShowEmptyView:(BOOL)isShowEmptyView;
-
-- (void)subscribeResponseWithClass:(Class)responseClass
-                           success:(void (^)(id value))successBlock
-                             error:(void (^)(NSError *error))errorBlock;
-
+- (RACSignal *)filterRequestStatusShowActivity:(BOOL)showActivity
+                                 showEmptyView:(BOOL)showEmptyView;
 
 @end
 

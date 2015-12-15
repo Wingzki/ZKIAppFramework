@@ -7,18 +7,22 @@
 //
 
 #import "ZKIRootViewController.h"
+
 #import "ZKIFooViewModel.h"
+#import "ZKIFooInteractor.h"
+
 #import "UIViewController+RequestStatusView.h"
 #import "UIViewController+Leaks.h"
 
 #import "FMDB.h"
 #import <objc/runtime.h>
 
-@interface ZKIRootViewController () <RequestStatusViewProtocol, ZKIChangeStatusProtocol> {
+@interface ZKIRootViewController () <RequestStatusViewProtocol> {
     
 }
 
-@property (strong, nonatomic) ZKIFooViewModel *viewModel;
+@property (strong, nonatomic) ZKIFooViewModel  *viewModel;
+@property (strong, nonatomic) ZKIFooInteractor *interactor;
 
 @end
 
@@ -43,34 +47,37 @@
     
     [self setupNavigationBar];
     
-    @weakify(self)
-    [[RACObserve(self, viewModel) filter:^BOOL(id value) {
+    self.interactor = [ZKIFooInteractor createWithBuilder:^(ZKIFooInteractor *builder) {
         
-        return value;
+    }];
+    
+    [RACObserve(self, viewModel) subscribeNext:^(id x) {
+        
+    } error:^(NSError *error) {
+        
+    }];
+    
+    ZKITestRequest *request = self.interactor.testRequest;
+    
+    [self handleRequestStatus:[request.requestStatusSiganl takeUntil:request.rac_willDeallocSignal] scrollView:nil];
+    
+    [[request.rac_request map:^id(id value) {
+        
+        return [ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
+            
+        }];
         
     }] subscribeNext:^(id x) {
-        @strongify(self)
         
-        [self handleRequestStatus:self.viewModel.requestStatusSiganl scrollView:nil];
+        self.viewModel = x;
         
-    }];
-    
-    self.viewModel = [ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
-        
-        builder.delegate = self;
+    } error:^(NSError *error) {
         
     }];
-    
-    [self.viewModel getData];
     
 }
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    
-}
-
-- (void)changeStatusWithDataStatus:(ZKIDataStatus)dataStatus
-                        viewStatus:(ZKIViewStatus)viewStatus {
     
 }
 
@@ -95,51 +102,6 @@
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
     
     self.navigationItem.rightBarButtonItem = item;
-    
-}
-
-
-#pragma mark - RequestStatusViewProtocol
-
-- (void)showActivity:(BOOL)show; {
-    
-    if (show) {
-        
-        NSLog(@"显示菊花");
-        
-    }else {
-        
-        NSLog(@"隐藏菊花");
-        
-    }
-    
-}
-
-- (void)showEmptyView:(BOOL)show; {
-    
-    if (show) {
-        
-        NSLog(@"数据为空");
-        
-    }else {
-        
-        NSLog(@"数据不为空");
-        
-    }
-    
-}
-
-- (void)showErrorView:(BOOL)show request:(ZKITestRequest *)request; {
-    
-    if (show) {
-        
-        NSLog(@"网络错误");
-        
-    }else {
-        
-    }
-    
-    [self.viewModel startRequest:request];
     
 }
 

@@ -17,39 +17,4 @@
     
 }
 
-- (void)getData {
-    
-    [self.delegate changeStatusWithDataStatus:ZKIDataStatusNull viewStatus:ZKIViewStatusLoading];
-    
-    ZKITestRequest *testRequest = [ZKITestRequest createWithBuilder:^(ZKITestRequest *builder) {
-        
-        builder->_foo2 = @"";
-        
-    }];
-    
-    [self startRequest:testRequest];
-    
-}
-
-- (void)startRequest:(ZKITestRequest *)request {
- 
-    @weakify(self)
-    [[request.rac_request connectRequestSignalWith:self.requestStatusSiganl
-                                        isShowActivity:YES
-                                       isShowErrorView:YES
-                                       isShowEmptyView:YES]
-     subscribeResponseWithClass:[NSDictionary class] success:^(id value) {
-         @strongify(self)
-         
-         [self.delegate changeStatusWithDataStatus:ZKIDataStatusA viewStatus:ZKIViewStatusNothing];
-         
-     } error:^(NSError *error) {
-         @strongify(self)
-         
-         [self.delegate changeStatusWithDataStatus:ZKIDataStatusNull viewStatus:ZKIViewStatusNetworkError];
-         
-     }];
-    
-}
-
 @end

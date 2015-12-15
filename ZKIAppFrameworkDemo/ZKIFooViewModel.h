@@ -10,44 +10,6 @@
 #import "NSObject+Builder.h"
 #import "ZKITestRequest.h"
 
-typedef NS_ENUM(NSUInteger, ZKIDataStatus) {
-    
-    ZKIDataStatusNull,
-    ZKIDataStatusA,
-    ZKIDataStatusB,
-    ZKIDataStatusC
-    
-};
-
-typedef NS_ENUM(NSUInteger, ZKIViewStatus) {
-    
-    ZKIViewStatusLoading,
-    ZKIViewStatusNormal,
-    ZKIViewStatusNothing,
-    ZKIViewStatusNetworkError,
-    ZKIViewStatusMoreData,
-    ZKIViewStatusNoMoreData
-    
-};
-
-/**
- *  页面刷新协议，页面展现形式的状态机
- */
-@protocol ZKIChangeStatusProtocol <NSObject>
-
-@required
-
-- (void)changeStatusWithDataStatus:(ZKIDataStatus)dataStatus
-                        viewStatus:(ZKIViewStatus)viewStatus;
-
-@end
-
 @interface ZKIFooViewModel : NSObject <NSObjectBuilderProtocol>
-
-@property (weak, nonatomic) id <ZKIChangeStatusProtocol> delegate;
-
-- (void)getData;
-
-- (void)startRequest:(ZKITestRequest *)request;
 
 @end

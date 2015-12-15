@@ -9,65 +9,96 @@
 #import "UIViewController+RequestStatusView.h"
 #import "YTKRequest+RecativeCocoa.h"
 
-@interface UIViewController ()
-
-- (void)showActivity:(BOOL)show;
-
-- (void)showEmptyView:(BOOL)show;
-
-- (void)showErrorView:(BOOL)show request:(ZKITestRequest *)request;
-
-@end
-
 @implementation UIViewController (RequestStatusView)
 
 - (void)handleRequestStatus:(RACSignal *)signal scrollView:(UIScrollView *)scrollView {
     
-    [signal subscribeNext:^(id x) {
+    [[signal filter:^BOOL(id value) {
         
-        if ([x isKindOfClass:[NSNumber class]]) {
-           
-            RequestStatus status = [x unsignedIntegerValue];
-            
-            switch (status) {
-                case RequestStatusShowActivity:
-                    
-                    if ([self respondsToSelector:@selector(showActivity:)]) {
-                        [self showActivity:YES];
-                    }
-                    
-                    break;
-                    
-                case RequestStatusHideActivity:
-                    
-                    if ([self respondsToSelector:@selector(showActivity:)]) {
-                        [self showActivity:NO];
-                    }
-                    
-                    break;
-                    
-                case RequestStatusShowEmptyView:
-                    
-                    if ([self respondsToSelector:@selector(showEmptyView:)]) {
-                        [self showEmptyView:YES];
-                    }
-                    
-                    break;
-                    
-                default:
-                    break;
-            }
-            
-        }else if ([x isKindOfClass:[NSError class]]) {
-            
-            if ([self respondsToSelector:@selector(showErrorView:request:)]) {
-                [self showErrorView:YES request:nil];
-            }
-            
+        return [value isKindOfClass:[NSNumber class]];
+        
+    }] subscribeNext:^(id x) {
+        
+        RequestStatus status = [x unsignedIntegerValue];
+        
+        switch (status) {
+            case RequestStatusShowActivity:
+                
+                if ([self respondsToSelector:@selector(showActivity:)]) {
+                    [self showActivity:YES];
+                }
+                
+                break;
+                
+            case RequestStatusHideActivity:
+                
+                if ([self respondsToSelector:@selector(showActivity:)]) {
+                    [self showActivity:NO];
+                }
+                
+                break;
+                
+            case RequestStatusShowEmptyView:
+                
+                if ([self respondsToSelector:@selector(showEmptyView:)]) {
+                    [self showEmptyView:YES];
+                }
+                
+                break;
+                
+            default:
+                break;
         }
+        
+    } error:^(NSError *error) {
+        
+    } completed:^{
         
     }];
     
 }
+
+#pragma mark - RequestStatusViewProtocol
+
+- (void)showActivity:(BOOL)show; {
+    
+    if (show) {
+        
+        NSLog(@"显示菊花");
+        
+    }else {
+        
+        NSLog(@"隐藏菊花");
+        
+    }
+    
+}
+
+- (void)showEmptyView:(BOOL)show; {
+    
+    if (show) {
+        
+        NSLog(@"数据为空");
+        
+    }else {
+        
+        NSLog(@"数据不为空");
+        
+    }
+    
+}
+
+- (void)showErrorView:(BOOL)show request:(ZKITestRequest *)request; {
+    
+    if (show) {
+        
+        NSLog(@"网络错误");
+        
+    }else {
+        
+    }
+    
+}
+
 
 @end
