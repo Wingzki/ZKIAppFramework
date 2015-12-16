@@ -40,7 +40,8 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 @interface RACSignal (RequestSignal)
 
 - (RACSignal *)filterRequestStatusShowActivity:(BOOL)showActivity
-                                 showEmptyView:(BOOL)showEmptyView;
+                                 showEmptyView:(BOOL)showEmptyView
+                                 showErrorView:(BOOL)showErrorView;
 
 @end
 

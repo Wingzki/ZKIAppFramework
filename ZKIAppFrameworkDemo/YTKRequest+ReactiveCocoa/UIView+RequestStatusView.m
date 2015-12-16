@@ -13,46 +13,46 @@
 
 - (void)handleRequestStatus:(RACSignal *)signal {
     
-    [[signal filter:^BOOL(id value) {
+    [signal subscribeNext:^(id x) {
         
-        return [value isKindOfClass:[NSNumber class]];
-        
-    }] subscribeNext:^(id x) {
-        
-        RequestStatus status = [x unsignedIntegerValue];
-        
-        switch (status) {
-            case RequestStatusShowActivity:
-                
-                if ([self respondsToSelector:@selector(showActivity:)]) {
-                    [self showActivity:YES];
-                }
-                
-                break;
-                
-            case RequestStatusHideActivity:
-                
-                if ([self respondsToSelector:@selector(showActivity:)]) {
-                    [self showActivity:NO];
-                }
-                
-                break;
-                
-            case RequestStatusShowEmptyView:
-                
-                if ([self respondsToSelector:@selector(showEmptyView:)]) {
-                    [self showEmptyView:YES];
-                }
-                
-                break;
-                
-            default:
-                break;
+        if ([x isKindOfClass:[NSNumber class]]) {
+            
+            RequestStatus status = [x unsignedIntegerValue];
+            
+            switch (status) {
+                case RequestStatusShowActivity:
+                    
+                    if ([self respondsToSelector:@selector(showActivity:)]) {
+                        [self showActivity:YES];
+                    }
+                    
+                    break;
+                    
+                case RequestStatusHideActivity:
+                    
+                    if ([self respondsToSelector:@selector(showActivity:)]) {
+                        [self showActivity:NO];
+                    }
+                    
+                    break;
+                    
+                case RequestStatusShowEmptyView:
+                    
+                    if ([self respondsToSelector:@selector(showEmptyView:)]) {
+                        [self showEmptyView:YES];
+                    }
+                    
+                    break;
+                    
+                default:
+                    break;
+            }
+            
+        }else if ([x isKindOfClass:[NSError class]]) {
+            
+            [self showErrorView:YES request:nil];
+            
         }
-        
-    } error:^(NSError *error) {
-        
-    } completed:^{
         
     }];
     

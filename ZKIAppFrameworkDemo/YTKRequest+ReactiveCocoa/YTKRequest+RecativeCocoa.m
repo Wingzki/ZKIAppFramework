@@ -97,9 +97,10 @@ static const char *varKey = "requestStatusSiganl";
 @implementation RACSignal (RequestSignal)
 
 - (RACSignal *)filterRequestStatusShowActivity:(BOOL)showActivity
-                                 showEmptyView:(BOOL)showEmptyView {
+                                 showEmptyView:(BOOL)showEmptyView
+                                 showErrorView:(BOOL)showErrorView {
     
-    return [[self filter:^BOOL(id value) {
+    return [[[self filter:^BOOL(id value) {
         
         return [value isKindOfClass:[NSNumber class]];
         
@@ -120,6 +121,10 @@ static const char *varKey = "requestStatusSiganl";
         }
         
         return NO;
+        
+    }] catch:^RACSignal *(NSError *error) {
+        
+        return showErrorView ? [RACSignal return:error] : [RACSignal empty];
         
     }];
     

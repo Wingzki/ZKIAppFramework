@@ -24,7 +24,7 @@
         
     }];
     
-    [view handleRequestStatus:request.requestStatusSiganl];
+    [view handleRequestStatus:[request.requestStatusSiganl filterRequestStatusShowActivity:YES showEmptyView:NO showErrorView:YES]];
     
     return request.rac_request;
     
