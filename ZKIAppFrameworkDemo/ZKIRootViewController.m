@@ -11,7 +11,7 @@
 #import "ZKIFooViewModel.h"
 #import "ZKIFooInteractor.h"
 
-#import "UIViewController+RequestStatusView.h"
+#import "UIView+RequestStatusView.h"
 #import "UIViewController+Leaks.h"
 
 #import "FMDB.h"
@@ -43,8 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = self.titleText;
-    
     [self setupNavigationBar];
     
     self.interactor = [ZKIFooInteractor createWithBuilder:^(ZKIFooInteractor *builder) {
@@ -57,13 +55,17 @@
         
     }];
     
-    ZKITestRequest *request = self.interactor.testRequest;
+    RAC(self.navigationItem, title) = [RACObserve(self, viewModel) map:^id(ZKIFooViewModel *value) {
+        
+        return value.text;
+        
+    }];
     
-    [self handleRequestStatus:[request.requestStatusSiganl takeUntil:request.rac_willDeallocSignal] scrollView:nil];
-    
-    [[request.rac_request map:^id(id value) {
+    [[[self.interactor testRequest:self.view] map:^id(id value) {
         
         return [ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
+            
+            builder.text = @"请求成功";
             
         }];
         
@@ -72,6 +74,12 @@
         self.viewModel = x;
         
     } error:^(NSError *error) {
+        
+        self.viewModel = [ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
+            
+            builder.text = @"请求错误";
+            
+        }];
         
     }];
     
@@ -82,6 +90,8 @@
 }
 
 - (void)setupNavigationBar {
+    
+    self.navigationItem.title = self.titleText;
     
     UIButton *cancelButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 40, 100)];
     [cancelButton setTitle:@"next" forState:UIControlStateNormal];
@@ -97,7 +107,6 @@
         
         return [RACSignal empty];
     }];
-    
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:cancelButton];
     

@@ -12,4 +12,6 @@
 
 @interface ZKIFooViewModel : NSObject <NSObjectBuilderProtocol>
 
+@property (copy  , nonatomic) NSString *text;
+
 @end

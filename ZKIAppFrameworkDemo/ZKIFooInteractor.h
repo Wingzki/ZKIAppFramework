@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+
+#import "UIView+RequestStatusView.h"
 #import "NSObject+Builder.h"
 #import "ZKITestRequest.h"
 
 @interface ZKIFooInteractor : NSObject <NSObjectBuilderProtocol>
 
-- (ZKITestRequest *)testRequest;
+- (RACSignal *)testRequest:(UIView<RequestStatusViewProtocol> *)vc;
 
 @end

@@ -24,8 +24,8 @@
 
 @end
 
-@interface UIViewController (RequestStatusView) <RequestStatusViewProtocol>
+@interface UIView (RequestStatusView) <RequestStatusViewProtocol>
 
-- (void)handleRequestStatus:(RACSignal *)signal scrollView:(UIScrollView *)scrollView;
+- (void)handleRequestStatus:(RACSignal *)signal;
 
 @end

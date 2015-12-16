@@ -6,12 +6,12 @@
 //  Copyright (c) 2015年 Wingzki. All rights reserved.
 //
 
-#import "UIViewController+RequestStatusView.h"
+#import "UIView+RequestStatusView.h"
 #import "YTKRequest+RecativeCocoa.h"
 
-@implementation UIViewController (RequestStatusView)
+@implementation UIView (RequestStatusView)
 
-- (void)handleRequestStatus:(RACSignal *)signal scrollView:(UIScrollView *)scrollView {
+- (void)handleRequestStatus:(RACSignal *)signal {
     
     [[signal filter:^BOOL(id value) {
         

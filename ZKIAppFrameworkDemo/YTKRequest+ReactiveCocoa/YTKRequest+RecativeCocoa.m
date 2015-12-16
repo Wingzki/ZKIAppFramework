@@ -48,7 +48,9 @@
             
             [self.requestStatusSiganl sendNext:@(RequestStatusHideActivity)];
             
-            NSError *error = [[NSError alloc] initWithDomain:@"RequestError" code:request.responseStatusCode userInfo:@{@"Request": request}];
+            NSError *error = [[NSError alloc] initWithDomain:@"RequestError"
+                                                        code:request.responseStatusCode
+                                                    userInfo:@{@"Request": request}];
             
             [self.requestStatusSiganl sendError:error];
             [subscriber sendError:error];
@@ -85,7 +87,9 @@ static const char *varKey = "requestStatusSiganl";
 }
 
 - (void)setRequestStatusSiganl:(RACSubject *)requestStatusSiganl {
+    
     objc_setAssociatedObject(self, &varKey, requestStatusSiganl, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    
 }
 
 @end

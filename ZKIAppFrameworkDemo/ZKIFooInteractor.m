@@ -16,13 +16,17 @@
     
 }
 
-- (ZKITestRequest *)testRequest {
+- (RACSignal *)testRequest:(UIView<RequestStatusViewProtocol> *)view {
     
-    return [ZKITestRequest createWithBuilder:^(ZKITestRequest *builder) {
+    ZKITestRequest *request = [ZKITestRequest createWithBuilder:^(ZKITestRequest *builder) {
         
         builder->_foo2 = @"";
         
     }];
+    
+    [view handleRequestStatus:request.requestStatusSiganl];
+    
+    return request.rac_request;
     
 }
 

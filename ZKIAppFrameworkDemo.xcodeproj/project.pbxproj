@@ -10,12 +10,11 @@
 		18298E09A2A97987C6261565 /* libPods-ZKIAppFrameworkDemoTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A19FD44C85FDE9EA255EC /* libPods-ZKIAppFrameworkDemoTests.a */; };
 		C90B2AAE1B5E28C000DB3821 /* ZKIFooViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C90B2AAD1B5E28C000DB3821 /* ZKIFooViewModel.m */; };
 		C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */; };
-		C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F11B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m */; };
 		C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F51B26C35700BECEE3 /* NSObject+Builder.m */; };
 		C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */; };
 		C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */; };
 		C93B59E21C1FC849005B5D78 /* ZKIFooInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C93B59E11C1FC849005B5D78 /* ZKIFooInteractor.m */; };
-		C961E0991B594D4400403EF5 /* UIViewController+RequestStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = C961E0981B594D4400403EF5 /* UIViewController+RequestStatusView.m */; };
+		C961E0991B594D4400403EF5 /* UIView+RequestStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = C961E0981B594D4400403EF5 /* UIView+RequestStatusView.m */; };
 		C9811A4D1B203CB100920B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4C1B203CB100920B44 /* main.m */; };
 		C9811A501B203CB100920B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4F1B203CB100920B44 /* AppDelegate.m */; };
 		C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5A1B203CB100920B44 /* Images.xcassets */; };
@@ -58,8 +57,8 @@
 		C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKITestRequest.m; sourceTree = "<group>"; };
 		C93B59E01C1FC849005B5D78 /* ZKIFooInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIFooInteractor.h; sourceTree = "<group>"; };
 		C93B59E11C1FC849005B5D78 /* ZKIFooInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIFooInteractor.m; sourceTree = "<group>"; };
-		C961E0971B594D4400403EF5 /* UIViewController+RequestStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RequestStatusView.h"; sourceTree = "<group>"; };
-		C961E0981B594D4400403EF5 /* UIViewController+RequestStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RequestStatusView.m"; sourceTree = "<group>"; };
+		C961E0971B594D4400403EF5 /* UIView+RequestStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RequestStatusView.h"; sourceTree = "<group>"; };
+		C961E0981B594D4400403EF5 /* UIView+RequestStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RequestStatusView.m"; sourceTree = "<group>"; };
 		C9811A471B203CB100920B44 /* ZKIAppFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKIAppFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9811A4B1B203CB100920B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9811A4C1B203CB100920B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -147,8 +146,8 @@
 			children = (
 				C92321F81B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.h */,
 				C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */,
-				C961E0971B594D4400403EF5 /* UIViewController+RequestStatusView.h */,
-				C961E0981B594D4400403EF5 /* UIViewController+RequestStatusView.m */,
+				C961E0971B594D4400403EF5 /* UIView+RequestStatusView.h */,
+				C961E0981B594D4400403EF5 /* UIView+RequestStatusView.m */,
 			);
 			path = "YTKRequest+ReactiveCocoa";
 			sourceTree = "<group>";
@@ -479,10 +478,9 @@
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
 				C9B50C0A1BE0C9D8009F2499 /* ZKIAllocedObjectManager.m in Sources */,
 				C92321F61B26C35700BECEE3 /* NSObject+Builder.m in Sources */,
-				C92321F21B26C15D00BECEE3 /* UIViewController+NavigationWithBuilder.m in Sources */,
 				C9B50C0D1BE0CE82009F2499 /* ZKIAllocedObjectModel.m in Sources */,
 				C93B59E21C1FC849005B5D78 /* ZKIFooInteractor.m in Sources */,
-				C961E0991B594D4400403EF5 /* UIViewController+RequestStatusView.m in Sources */,
+				C961E0991B594D4400403EF5 /* UIView+RequestStatusView.m in Sources */,
 				C90B2AAE1B5E28C000DB3821 /* ZKIFooViewModel.m in Sources */,
 				C9B50C101BE0D076009F2499 /* UIViewController+Leaks.m in Sources */,
 				C9811A4D1B203CB100920B44 /* main.m in Sources */,
