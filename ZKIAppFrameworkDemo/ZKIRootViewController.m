@@ -49,19 +49,9 @@
         
     }];
     
-    [RACObserve(self, viewModel) subscribeNext:^(id x) {
-        
-    } error:^(NSError *error) {
-        
-    }];
+    RAC(self.navigationItem, title) = RACObserve(self, viewModel.text);
     
-    RAC(self.navigationItem, title) = [RACObserve(self, viewModel) map:^id(ZKIFooViewModel *value) {
-        
-        return value.text;
-        
-    }];
-    
-    [[[self.interactor testRequest:self.view] map:^id(id value) {
+    RAC(self, viewModel) = [[[self.interactor testRequest:self.view] map:^id(id value) {
         
         return [ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
             
@@ -69,17 +59,13 @@
             
         }];
         
-    }] subscribeNext:^(id x) {
+    }] catch:^RACSignal *(NSError *error) {
         
-        self.viewModel = x;
-        
-    } error:^(NSError *error) {
-        
-        self.viewModel = [ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
+        return [RACSignal return:[ZKIFooViewModel createWithBuilder:^(ZKIFooViewModel *builder) {
             
             builder.text = @"请求错误";
             
-        }];
+        }]];
         
     }];
     

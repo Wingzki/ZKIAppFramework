@@ -26,6 +26,7 @@ typedef NS_ENUM(NSUInteger, RequestStatus) {
 
 - (id)responseDataHandle:(id)value racSubject:(id <RACSubscriber>)subscriber;
 - (NSInteger)dataEmptyHandle:(id)value;
+- (NSError *)creatError:(YTKBaseRequest *)request;
 
 @end
 
