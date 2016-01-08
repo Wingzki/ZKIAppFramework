@@ -22,6 +22,9 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AsyncDisplayKit (1.9.4):
+    - AsyncDisplayKit/ASDealloc2MainObject (= 1.9.4)
+  - AsyncDisplayKit/ASDealloc2MainObject (1.9.4)
   - FMDB (2.5):
     - FMDB/standard (= 2.5)
   - FMDB/common (2.5)
@@ -43,6 +46,7 @@ PODS:
   - YYWebImage (0.9.0)
 
 DEPENDENCIES:
+  - AsyncDisplayKit
   - FMDB
   - JSONModel
   - Kiwi
@@ -54,6 +58,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFDownloadRequestOperation: 748a1643423e1ddb23f2178f778087d4f0ae8ac7
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  AsyncDisplayKit: 0932ff6f78364130a195039ab9a1c2ff63adc665
   FMDB: 96e8f1bcc1329e269330f99770ad4285d9003e52
   JSONModel: ec77e9865236a7a09d9cf7668df6b4b328d9ec1d
   Kiwi: f038a6c61f7a9e4d7766bff5717aa3b3fdb75f55

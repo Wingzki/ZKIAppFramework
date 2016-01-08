@@ -71,10 +71,6 @@
     
 }
 
-- (void)setValue:(id)value forUndefinedKey:(NSString *)key {
-    
-}
-
 - (void)setupNavigationBar {
     
     self.navigationItem.title = self.titleText;

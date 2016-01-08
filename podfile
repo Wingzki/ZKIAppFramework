@@ -7,6 +7,8 @@ pod "YTKNetwork"
 pod 'FMDB'
 pod "YYWebImage"
 
+pod "AsyncDisplayKit"
+
 target :ZKIAppFrameworkDemoTests, :exclusive => true do
   pod 'Kiwi'
 end
