@@ -25,6 +25,8 @@
 		C9B50C0D1BE0CE82009F2499 /* ZKIAllocedObjectModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C0C1BE0CE82009F2499 /* ZKIAllocedObjectModel.m */; };
 		C9B50C101BE0D076009F2499 /* UIViewController+Leaks.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C0F1BE0D076009F2499 /* UIViewController+Leaks.m */; };
 		C9B50C131BE0D88B009F2499 /* ZKIAllocedObjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */; };
+		C9F8F6BA1C50ADD100B46933 /* QYTableViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F8F6B91C50ADD100B46933 /* QYTableViewProtocol.m */; };
+		C9F8F6C01C50C84800B46933 /* TestTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9F8F6BF1C50C84800B46933 /* TestTableViewCell.m */; };
 		D3EE81E264A1EB221F0B9026 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09197E1D2EF7D0C0CC3149E6 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +81,11 @@
 		C9B50C0F1BE0D076009F2499 /* UIViewController+Leaks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Leaks.m"; sourceTree = "<group>"; };
 		C9B50C111BE0D88B009F2499 /* ZKIAllocedObjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIAllocedObjectViewController.h; sourceTree = "<group>"; };
 		C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIAllocedObjectViewController.m; sourceTree = "<group>"; };
+		C9F8F6B81C50ADD100B46933 /* QYTableViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYTableViewProtocol.h; sourceTree = "<group>"; };
+		C9F8F6B91C50ADD100B46933 /* QYTableViewProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYTableViewProtocol.m; sourceTree = "<group>"; };
+		C9F8F6BB1C50BF4E00B46933 /* QYTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYTableViewCellProtocol.h; sourceTree = "<group>"; };
+		C9F8F6BE1C50C84800B46933 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
+		C9F8F6BF1C50C84800B46933 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
 		CA437D8C6EEDDBBDE3D8803A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		F04852702D01520BCB4EFFE6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,6 +162,9 @@
 		C92321FB1B26D28200BECEE3 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				C9F8F6B81C50ADD100B46933 /* QYTableViewProtocol.h */,
+				C9F8F6B91C50ADD100B46933 /* QYTableViewProtocol.m */,
+				C9F8F6BB1C50BF4E00B46933 /* QYTableViewCellProtocol.h */,
 				C92321ED1B26C0EC00BECEE3 /* ZKIRootViewController.h */,
 				C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */,
 				C92321FC1B26D2BA00BECEE3 /* ZKITestRequest.h */,
@@ -163,6 +173,8 @@
 				C90B2AAD1B5E28C000DB3821 /* ZKIFooViewModel.m */,
 				C93B59E01C1FC849005B5D78 /* ZKIFooInteractor.h */,
 				C93B59E11C1FC849005B5D78 /* ZKIFooInteractor.m */,
+				C9F8F6BE1C50C84800B46933 /* TestTableViewCell.h */,
+				C9F8F6BF1C50C84800B46933 /* TestTableViewCell.m */,
 			);
 			name = Test;
 			sourceTree = "<group>";
@@ -471,9 +483,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9811A771B20427B00920B44 /* ZKINetworkManager.m in Sources */,
+				C9F8F6C01C50C84800B46933 /* TestTableViewCell.m in Sources */,
 				C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */,
 				C9B50C131BE0D88B009F2499 /* ZKIAllocedObjectViewController.m in Sources */,
 				C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */,
+				C9F8F6BA1C50ADD100B46933 /* QYTableViewProtocol.m in Sources */,
 				C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
 				C9B50C0A1BE0C9D8009F2499 /* ZKIAllocedObjectManager.m in Sources */,
