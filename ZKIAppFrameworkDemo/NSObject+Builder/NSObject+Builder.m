@@ -16,8 +16,8 @@
     
     block(objc);
     
-    if ([objc respondsToSelector:@selector(build)]) {
-        return [objc performSelector:@selector(build)];
+    if ([objc respondsToSelector:@selector(chackParameters)]) {
+        [objc performSelector:@selector(chackParameters)];
     }
     
     return objc;

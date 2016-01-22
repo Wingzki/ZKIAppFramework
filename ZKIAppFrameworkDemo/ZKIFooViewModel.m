@@ -11,10 +11,4 @@
 
 @implementation ZKIFooViewModel
 
-- (instancetype)build {
-    
-    return self;
-    
-}
-
 @end

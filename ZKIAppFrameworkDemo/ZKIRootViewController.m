@@ -74,14 +74,24 @@
         
     }];
     
-    NSArray *dataArray = @[@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r"];
+    NSArray *dataArray = @[@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r",@"h",@"f",@"r"];
     
     UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     [self.view addSubview:tableView];
     
-    self.tableViewProtocol = [[QYTableViewProtocol alloc] init];
+    self.tableViewProtocol = [QYTableViewProtocol createWithBuilder:^(QYTableViewProtocol *builder) {
+        
+        builder.numberOfSections = 1;
+        
+    }];
     
-    [self.tableViewProtocol registerCell:[TestTableViewCell class] onTableView:tableView forIdentifier:@"Test" filter:^BOOL(NSIndexPath *indexPath) {
+    [self.tableViewProtocol registerNumberOfRows:^NSInteger(NSInteger section) {
+        
+        return 20;
+        
+    }];
+    
+    [self.tableViewProtocol registerCell:[TestTableViewCell class] onTableView:tableView filter:^BOOL(NSIndexPath *indexPath) {
         
         return indexPath.row % 3 == 1;
         
@@ -91,15 +101,13 @@
         
     }];
     
-    [self.tableViewProtocol registerCell:[UITableViewCell class] onTableView:tableView forIdentifier:@"hello" filter:^BOOL(NSIndexPath *indexPath) {
-       
-        return indexPath.row % 3 == 2;
-        
-    }];
-    
-    [self.tableViewProtocol registerCell:[UITableViewCell class] onTableView:tableView forIdentifier:@"world" filter:^BOOL(NSIndexPath *indexPath) {
+    [self.tableViewProtocol registerCell:[TestTableViewCell class] onTableView:tableView filter:^BOOL(NSIndexPath *indexPath) {
         
         return indexPath.row % 3 == 2;
+        
+    } data:^id(NSIndexPath *indexPath) {
+        
+        return dataArray[indexPath.row];
         
     }];
     

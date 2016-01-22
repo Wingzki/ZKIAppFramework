@@ -19,10 +19,6 @@
     NSLog(@"%@ Dealloc", [self class]);
 }
 
-- (instancetype)build {
-    return self;
-}
-
 - (NSString *)baseUrl {
     
     return @"http://www.baidu.com";

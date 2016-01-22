@@ -7,27 +7,27 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NSObject+Builder.h"
 #import "QYTableViewCellProtocol.h"
 
 #import "ReactiveCocoa.h"
 #import "RACEXTScope.h"
 
+typedef NSInteger(^NumberOfRows)(NSInteger section);
 typedef BOOL(^CellFilter)(NSIndexPath *indexPath);
 typedef id(^CellData)(NSIndexPath *indexPath);
 
-@interface QYTableViewProtocol : NSObject <UITableViewDelegate, UITableViewDataSource>
+@interface QYTableViewProtocol : NSObject <UITableViewDelegate, UITableViewDataSource, NSObjectBuilderProtocol>
 
 @property (strong, nonatomic) RACSubject *didSelectRowAtIndexPath;
 
-- (void)registerCell:(Class <QYTableViewCellProtocol> )cellClass
-         onTableView:(UITableView *)tableView
-       forIdentifier:(NSString *)identifier
-              filter:(CellFilter)block
-                data:(CellData)dataBlock;
+@property (assign, nonatomic) NSInteger  numberOfSections;
+
+- (void)registerNumberOfRows:(NumberOfRows)block;
 
 - (void)registerCell:(Class <QYTableViewCellProtocol> )cellClass
          onTableView:(UITableView *)tableView
-       forIdentifier:(NSString *)identifier
-              filter:(CellFilter)block;
+              filter:(CellFilter)block
+                data:(CellData)dataBlock;
 
 @end

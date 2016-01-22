@@ -8,7 +8,8 @@
 
 #import "QYTableViewProtocol.h"
 
-static NSString * const kNormalCell = @"kNormalCell";
+static const NSString *kRandomAlphabet = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+static NSString * const kNormalCell    = @"kNormalCell";
 
 @interface QYTableViewProtocol ()
 
@@ -16,9 +17,15 @@ static NSString * const kNormalCell = @"kNormalCell";
 @property (strong, nonatomic) NSMutableDictionary *cellStyleDic;
 @property (strong, nonatomic) NSMutableDictionary *cellDataDic;
 
+@property (copy  , nonatomic) NumberOfRows numberOfRows;
+
 @end
 
 @implementation QYTableViewProtocol
+
+- (void)chackParameters {
+    
+}
 
 - (instancetype)init
 {
@@ -35,31 +42,35 @@ static NSString * const kNormalCell = @"kNormalCell";
     return self;
 }
 
-- (void)registerCell:(Class <QYTableViewCellProtocol> )cellClass
-         onTableView:(UITableView *)tableView
-       forIdentifier:(NSString *)identifier
-              filter:(CellFilter)block
-                data:(CellData)dataBlock; {
+- (void)registerNumberOfRows:(NumberOfRows)block; {
     
-    [self registerCell:cellClass
-           onTableView:tableView
-         forIdentifier:identifier
-                filter:block];
-    
-    [self.cellDataDic setObject:[dataBlock copy] forKey:identifier];
+    if (block) {
+        
+        self.numberOfRows = [block copy];
+        
+    }
     
 }
 
 - (void)registerCell:(Class <QYTableViewCellProtocol> )cellClass
          onTableView:(UITableView *)tableView
-       forIdentifier:(NSString *)identifier
-              filter:(CellFilter)block; {
+              filter:(CellFilter)block
+                data:(CellData)dataBlock; {
     
-    [tableView registerClass:cellClass forCellReuseIdentifier:identifier];
+    NSString *randomIdentifier = [self randomString];
+    
+    while ([self isIdentifierExist:randomIdentifier]) {
+        
+        randomIdentifier = [self randomString];
+        
+    }
+    
+    [tableView registerClass:cellClass forCellReuseIdentifier:randomIdentifier];
     [tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:kNormalCell];
     
     [self.cellFilterArray addObject:[block copy]];
-    [self.cellStyleDic setObject:identifier forKey:block];
+    [self.cellStyleDic setObject:randomIdentifier forKey:block];
+    [self.cellDataDic setObject:[dataBlock copy] forKey:randomIdentifier];
     
 }
 
@@ -81,17 +92,50 @@ static NSString * const kNormalCell = @"kNormalCell";
     
 }
 
+- (NSString *)randomString {
+    
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:10];
+    
+    for (int i = 0; i < 10; i++) {
+        
+        [randomString appendFormat: @"%C", [kRandomAlphabet characterAtIndex:arc4random_uniform((u_int32_t)[kRandomAlphabet length])]];
+        
+    }
+    
+    return randomString;
+}
+
+- (BOOL)isIdentifierExist:(NSString *)identifier {
+    
+    for (NSString *temp in [self.cellStyleDic allValues]) {
+        
+        if ([temp isEqualToString:identifier]) {
+            return  YES;
+        }
+        
+    }
+    
+    return NO;
+    
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     
-    return 1;
+    return self.numberOfSections;
     
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    if (self.numberOfRows) {
+        
+        return self.numberOfRows(section);
+        
+    }
+    
+    return 0;
     
 }
 

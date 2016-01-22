@@ -10,9 +10,9 @@
 
 @protocol NSObjectBuilderProtocol <NSObject>
 
-@required
+@optional
 
-- (instancetype)build;
+- (void)chackParameters;
 
 @end
 

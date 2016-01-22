@@ -10,12 +10,6 @@
 
 @implementation ZKIFooInteractor
 
-- (instancetype)build {
-    
-    return self;
-    
-}
-
 - (RACSignal *)testRequest:(UIView<RequestStatusViewProtocol> *)view {
     
     ZKITestRequest *request = [ZKITestRequest createWithBuilder:^(ZKITestRequest *builder) {
