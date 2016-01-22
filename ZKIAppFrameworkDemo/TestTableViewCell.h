@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "QYTableViewCellProtocol.h"
+#import "QYReusableViewPotocol.h"
 
 @interface TestTableViewCell : UITableViewCell
 

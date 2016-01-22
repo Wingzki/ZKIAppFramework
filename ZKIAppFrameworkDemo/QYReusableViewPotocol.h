@@ -1,14 +1,14 @@
 //
-//  QYTableViewCellProtocol.h
+//  QYReusableViewPotocol.h
 //  ZKIAppFrameworkDemo
 //
-//  Created by Dai Qinfu on 16/1/21.
+//  Created by Dai Qinfu on 16/1/22.
 //  Copyright © 2016年 Wingzki. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@protocol QYTableViewCellProtocol <NSObject>
+@protocol QYReusableViewPotocol <NSObject>
 
 - (void)bindingData:(id)dataModel;
 

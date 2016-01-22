@@ -57,6 +57,7 @@
 		C92321F91B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKRequest+RecativeCocoa.m"; sourceTree = "<group>"; };
 		C92321FC1B26D2BA00BECEE3 /* ZKITestRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKITestRequest.h; sourceTree = "<group>"; };
 		C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKITestRequest.m; sourceTree = "<group>"; };
+		C930499C1C51F80D00210B02 /* QYReusableViewPotocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYReusableViewPotocol.h; sourceTree = "<group>"; };
 		C93B59E01C1FC849005B5D78 /* ZKIFooInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZKIFooInteractor.h; sourceTree = "<group>"; };
 		C93B59E11C1FC849005B5D78 /* ZKIFooInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIFooInteractor.m; sourceTree = "<group>"; };
 		C961E0971B594D4400403EF5 /* UIView+RequestStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RequestStatusView.h"; sourceTree = "<group>"; };
@@ -83,7 +84,6 @@
 		C9B50C121BE0D88B009F2499 /* ZKIAllocedObjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIAllocedObjectViewController.m; sourceTree = "<group>"; };
 		C9F8F6B81C50ADD100B46933 /* QYTableViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYTableViewProtocol.h; sourceTree = "<group>"; };
 		C9F8F6B91C50ADD100B46933 /* QYTableViewProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QYTableViewProtocol.m; sourceTree = "<group>"; };
-		C9F8F6BB1C50BF4E00B46933 /* QYTableViewCellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QYTableViewCellProtocol.h; sourceTree = "<group>"; };
 		C9F8F6BE1C50C84800B46933 /* TestTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewCell.h; sourceTree = "<group>"; };
 		C9F8F6BF1C50C84800B46933 /* TestTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewCell.m; sourceTree = "<group>"; };
 		CA437D8C6EEDDBBDE3D8803A /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 			children = (
 				C9F8F6B81C50ADD100B46933 /* QYTableViewProtocol.h */,
 				C9F8F6B91C50ADD100B46933 /* QYTableViewProtocol.m */,
-				C9F8F6BB1C50BF4E00B46933 /* QYTableViewCellProtocol.h */,
+				C930499C1C51F80D00210B02 /* QYReusableViewPotocol.h */,
 				C92321ED1B26C0EC00BECEE3 /* ZKIRootViewController.h */,
 				C92321EE1B26C0EC00BECEE3 /* ZKIRootViewController.m */,
 				C92321FC1B26D2BA00BECEE3 /* ZKITestRequest.h */,

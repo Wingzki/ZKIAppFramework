@@ -8,26 +8,79 @@
 
 #import <UIKit/UIKit.h>
 #import "NSObject+Builder.h"
-#import "QYTableViewCellProtocol.h"
+#import "QYReusableViewPotocol.h"
 
 #import "ReactiveCocoa.h"
 #import "RACEXTScope.h"
 
 typedef NSInteger(^NumberOfRows)(NSInteger section);
-typedef BOOL(^CellFilter)(NSIndexPath *indexPath);
-typedef id(^CellData)(NSIndexPath *indexPath);
+typedef CGFloat(^HeightBlock)(NSIndexPath *indexPath);
+
+typedef BOOL(^ViewFilter)(NSIndexPath *indexPath);
+typedef id(^ViewData)(NSIndexPath *indexPath);
 
 @interface QYTableViewProtocol : NSObject <UITableViewDelegate, UITableViewDataSource, NSObjectBuilderProtocol>
 
+/**
+ *  <#Description#>
+ */
 @property (strong, nonatomic) RACSubject *didSelectRowAtIndexPath;
 
+/**
+ *  <#Description#>
+ */
 @property (assign, nonatomic) NSInteger  numberOfSections;
 
+/**
+ *  注册每个Section的行数
+ *
+ *  @param block <#block description#>
+ */
 - (void)registerNumberOfRows:(NumberOfRows)block;
 
-- (void)registerCell:(Class <QYTableViewCellProtocol> )cellClass
+/**
+ *  注册一个用于显示的TableViewCell
+ *
+ *  @param cellClass   <#cellClass description#>
+ *  @param tableView   <#tableView description#>
+ *  @param block       <#block description#>
+ *  @param heightBlock <#heightBlock description#>
+ *  @param dataBlock   <#dataBlock description#>
+ */
+- (void)registerCell:(Class <QYReusableViewPotocol> )cellClass
          onTableView:(UITableView *)tableView
-              filter:(CellFilter)block
-                data:(CellData)dataBlock;
+              filter:(ViewFilter)block
+              height:(HeightBlock)heightBlock
+                data:(ViewData)dataBlock;
+
+/**
+ *  注册一个用于显示的TableViewHeader
+ *
+ *  @param viewClass   <#viewClass description#>
+ *  @param tableView   <#tableView description#>
+ *  @param block       <#block description#>
+ *  @param heightBlock <#heightBlock description#>
+ *  @param dataBlock   <#dataBlock description#>
+ */
+- (void)registerHeaderView:(Class <QYReusableViewPotocol> )viewClass
+               onTableView:(UITableView *)tableView
+                    filter:(ViewFilter)block
+                    height:(HeightBlock)heightBlock
+                      data:(ViewData)dataBlock;
+
+/**
+ *  注册一个用于显示的TableViewFooter
+ *
+ *  @param viewClass   <#viewClass description#>
+ *  @param tableView   <#tableView description#>
+ *  @param block       <#block description#>
+ *  @param heightBlock <#heightBlock description#>
+ *  @param dataBlock   <#dataBlock description#>
+ */
+- (void)registerFooterView:(Class <QYReusableViewPotocol> )viewClass
+               onTableView:(UITableView *)tableView
+                    filter:(ViewFilter)block
+                    height:(HeightBlock)heightBlock
+                      data:(ViewData)dataBlock;
 
 @end
