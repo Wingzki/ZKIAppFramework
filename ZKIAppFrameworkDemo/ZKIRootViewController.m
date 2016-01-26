@@ -97,6 +97,10 @@
         
         return indexPath.row % 3 == 1;
         
+    } height:^CGFloat(NSIndexPath *indexPath) {
+        
+        return 44;
+        
     } data:^id(NSIndexPath *indexPath) {
         
         return dataArray[indexPath.row];
@@ -105,7 +109,11 @@
     
     [self.tableViewProtocol registerCell:[TestTableViewCell class] onTableView:tableView filter:^BOOL(NSIndexPath *indexPath) {
         
-        return indexPath.row % 3 == 2;
+        return indexPath.row % 3 == 0;
+        
+    } height:^CGFloat(NSIndexPath *indexPath) {
+        
+        return 80;
         
     } data:^id(NSIndexPath *indexPath) {
         
