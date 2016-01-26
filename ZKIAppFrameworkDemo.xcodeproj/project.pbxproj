@@ -15,6 +15,12 @@
 		C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = C92321FD1B26D2BA00BECEE3 /* ZKITestRequest.m */; };
 		C93B59E21C1FC849005B5D78 /* ZKIFooInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = C93B59E11C1FC849005B5D78 /* ZKIFooInteractor.m */; };
 		C961E0991B594D4400403EF5 /* UIView+RequestStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = C961E0981B594D4400403EF5 /* UIView+RequestStatusView.m */; };
+		C966E6ED1C562D5000206B18 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C966E6EC1C562D5000206B18 /* libReact.a */; };
+		C966E70C1C570EF000206B18 /* ReactView.m in Sources */ = {isa = PBXBuildFile; fileRef = C966E7091C570EF000206B18 /* ReactView.m */; };
+		C966E70D1C570EF000206B18 /* index.ios.js in Resources */ = {isa = PBXBuildFile; fileRef = C966E70A1C570EF000206B18 /* index.ios.js */; };
+		C966E7411C57124700206B18 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C966E7401C57122900206B18 /* libRCTWebSocket.a */; };
+		C966E7421C57125500206B18 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C966E73A1C57121600206B18 /* libRCTNetwork.a */; };
+		C966E7491C57156300206B18 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C966E7481C57154300206B18 /* libRCTText.a */; };
 		C9811A4D1B203CB100920B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4C1B203CB100920B44 /* main.m */; };
 		C9811A501B203CB100920B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4F1B203CB100920B44 /* AppDelegate.m */; };
 		C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5A1B203CB100920B44 /* Images.xcassets */; };
@@ -31,6 +37,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		C966E6F41C56308400206B18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C966E6F01C56308300206B18 /* React.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
+			remoteInfo = React;
+		};
+		C966E7391C57121600206B18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C966E7351C57121600206B18 /* RCTNetwork.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B511DB1A9E6C8500147676;
+			remoteInfo = RCTNetwork;
+		};
+		C966E73F1C57122900206B18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C966E73B1C57122900206B18 /* RCTWebSocket.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3C86DF461ADF2C930047B81A;
+			remoteInfo = RCTWebSocket;
+		};
+		C966E7471C57154300206B18 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C966E7431C57154300206B18 /* RCTText.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
+			remoteInfo = RCTText;
+		};
 		C9811A641B203CB100920B44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C9811A3F1B203CB100920B44 /* Project object */;
@@ -61,6 +95,14 @@
 		C93B59E11C1FC849005B5D78 /* ZKIFooInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZKIFooInteractor.m; sourceTree = "<group>"; };
 		C961E0971B594D4400403EF5 /* UIView+RequestStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RequestStatusView.h"; sourceTree = "<group>"; };
 		C961E0981B594D4400403EF5 /* UIView+RequestStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RequestStatusView.m"; sourceTree = "<group>"; };
+		C966E6EC1C562D5000206B18 /* libReact.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libReact.a; path = "react-native/React/build/Debug-iphoneos/libReact.a"; sourceTree = "<group>"; };
+		C966E6F01C56308300206B18 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "react-native/React/React.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		C966E7091C570EF000206B18 /* ReactView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ReactView.m; path = ReactNative/ReactView.m; sourceTree = SOURCE_ROOT; };
+		C966E70A1C570EF000206B18 /* index.ios.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = index.ios.js; path = ReactNative/index.ios.js; sourceTree = SOURCE_ROOT; };
+		C966E70B1C570EF000206B18 /* ReactView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ReactView.h; path = ReactNative/ReactView.h; sourceTree = SOURCE_ROOT; };
+		C966E7351C57121600206B18 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		C966E73B1C57122900206B18 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		C966E7431C57154300206B18 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		C9811A471B203CB100920B44 /* ZKIAppFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKIAppFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9811A4B1B203CB100920B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9811A4C1B203CB100920B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +137,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C966E7491C57156300206B18 /* libRCTText.a in Frameworks */,
+				C966E7421C57125500206B18 /* libRCTNetwork.a in Frameworks */,
+				C966E7411C57124700206B18 /* libRCTWebSocket.a in Frameworks */,
+				C966E6ED1C562D5000206B18 /* libReact.a in Frameworks */,
 				D3EE81E264A1EB221F0B9026 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,6 +159,7 @@
 		5B64DDF05CCC600A8DA54651 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C966E6EC1C562D5000206B18 /* libReact.a */,
 				09197E1D2EF7D0C0CC3149E6 /* libPods.a */,
 				AD7A19FD44C85FDE9EA255EC /* libPods-ZKIAppFrameworkDemoTests.a */,
 			);
@@ -179,6 +226,52 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		C966E6D51C562A8A00206B18 /* ReactNative */ = {
+			isa = PBXGroup;
+			children = (
+				C966E7431C57154300206B18 /* RCTText.xcodeproj */,
+				C966E73B1C57122900206B18 /* RCTWebSocket.xcodeproj */,
+				C966E7351C57121600206B18 /* RCTNetwork.xcodeproj */,
+				C966E6F01C56308300206B18 /* React.xcodeproj */,
+				C966E70A1C570EF000206B18 /* index.ios.js */,
+				C966E70B1C570EF000206B18 /* ReactView.h */,
+				C966E7091C570EF000206B18 /* ReactView.m */,
+			);
+			path = ReactNative;
+			sourceTree = "<group>";
+		};
+		C966E6F11C56308300206B18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C966E6F51C56308400206B18 /* libReact.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C966E7361C57121600206B18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C966E73A1C57121600206B18 /* libRCTNetwork.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C966E73C1C57122900206B18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C966E7401C57122900206B18 /* libRCTWebSocket.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C966E7441C57154300206B18 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C966E7481C57154300206B18 /* libRCTText.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		C9811A3E1B203CB100920B44 = {
 			isa = PBXGroup;
 			children = (
@@ -202,6 +295,7 @@
 		C9811A491B203CB100920B44 /* ZKIAppFrameworkDemo */ = {
 			isa = PBXGroup;
 			children = (
+				C966E6D51C562A8A00206B18 /* ReactNative */,
 				C9B50C071BE0C927009F2499 /* ZKILeaks */,
 				C9E592251B4397BE00453441 /* Request+View */,
 				C92321F31B26C35700BECEE3 /* NSObject+Builder */,
@@ -357,6 +451,24 @@
 			mainGroup = C9811A3E1B203CB100920B44;
 			productRefGroup = C9811A481B203CB100920B44 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = C966E7361C57121600206B18 /* Products */;
+					ProjectRef = C966E7351C57121600206B18 /* RCTNetwork.xcodeproj */;
+				},
+				{
+					ProductGroup = C966E7441C57154300206B18 /* Products */;
+					ProjectRef = C966E7431C57154300206B18 /* RCTText.xcodeproj */;
+				},
+				{
+					ProductGroup = C966E73C1C57122900206B18 /* Products */;
+					ProjectRef = C966E73B1C57122900206B18 /* RCTWebSocket.xcodeproj */;
+				},
+				{
+					ProductGroup = C966E6F11C56308300206B18 /* Products */;
+					ProjectRef = C966E6F01C56308300206B18 /* React.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				C9811A461B203CB100920B44 /* ZKIAppFrameworkDemo */,
@@ -365,12 +477,44 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		C966E6F51C56308400206B18 /* libReact.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libReact.a;
+			remoteRef = C966E6F41C56308400206B18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C966E73A1C57121600206B18 /* libRCTNetwork.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTNetwork.a;
+			remoteRef = C966E7391C57121600206B18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C966E7401C57122900206B18 /* libRCTWebSocket.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTWebSocket.a;
+			remoteRef = C966E73F1C57122900206B18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C966E7481C57154300206B18 /* libRCTText.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTText.a;
+			remoteRef = C966E7471C57154300206B18 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		C9811A451B203CB100920B44 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C9811A5E1B203CB100920B44 /* LaunchScreen.xib in Resources */,
+				C966E70D1C570EF000206B18 /* index.ios.js in Resources */,
 				C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -487,6 +631,7 @@
 				C92321FA1B26CBDA00BECEE3 /* YTKRequest+RecativeCocoa.m in Sources */,
 				C9B50C131BE0D88B009F2499 /* ZKIAllocedObjectViewController.m in Sources */,
 				C92321FE1B26D2BA00BECEE3 /* ZKITestRequest.m in Sources */,
+				C966E70C1C570EF000206B18 /* ReactView.m in Sources */,
 				C9F8F6BA1C50ADD100B46933 /* QYTableViewProtocol.m in Sources */,
 				C92321EF1B26C0EC00BECEE3 /* ZKIRootViewController.m in Sources */,
 				C9811A501B203CB100920B44 /* AppDelegate.m in Sources */,
@@ -617,8 +762,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFDownloadRequestOperation\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AsyncDisplayKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/Kiwi\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/YTKNetwork\"",
+					"$(SRCROOT)/react-native/React/**",
+					"\"${PODS_ROOT}/Headers/Public/YYWebImage\"",
+				);
 				INFOPLIST_FILE = ZKIAppFrameworkDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/react-native/React/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/react-native/Libraries/RCTTest/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -629,8 +794,28 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"${PODS_ROOT}/Headers/Public\"",
+					"\"${PODS_ROOT}/Headers/Public/AFDownloadRequestOperation\"",
+					"\"${PODS_ROOT}/Headers/Public/AFNetworking\"",
+					"\"${PODS_ROOT}/Headers/Public/AsyncDisplayKit\"",
+					"\"${PODS_ROOT}/Headers/Public/FMDB\"",
+					"\"${PODS_ROOT}/Headers/Public/JSONModel\"",
+					"\"${PODS_ROOT}/Headers/Public/Kiwi\"",
+					"\"${PODS_ROOT}/Headers/Public/Masonry\"",
+					"\"${PODS_ROOT}/Headers/Public/ReactiveCocoa\"",
+					"\"${PODS_ROOT}/Headers/Public/YTKNetwork\"",
+					"$(SRCROOT)/react-native/React/**",
+					"\"${PODS_ROOT}/Headers/Public/YYWebImage\"",
+				);
 				INFOPLIST_FILE = ZKIAppFrameworkDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/react-native/React/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/react-native/Libraries/RCTTest/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

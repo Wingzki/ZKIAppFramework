@@ -1,13 +1,13 @@
 platform :ios, '7.0'
 
-pod "ReactiveCocoa"
-pod "Masonry"
-pod "JSONModel"
-pod "YTKNetwork"
+pod 'ReactiveCocoa'
+pod 'Masonry'
+pod 'JSONModel'
+pod 'YTKNetwork'
 pod 'FMDB'
-pod "YYWebImage"
+pod 'YYWebImage'
 
-pod "AsyncDisplayKit"
+pod 'AsyncDisplayKit'
 
 target :ZKIAppFrameworkDemoTests, :exclusive => true do
   pod 'Kiwi'

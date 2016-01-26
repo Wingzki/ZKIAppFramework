@@ -4,20 +4,27 @@
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "198558D24177BEB407373AEDAB20A70863B47224" : 0,
     "44CEC729B2537A9BE00CDF40502D82323EE23784" : 0,
-    "90937527F92239081C95D6470DEA9261510F33D3" : 0
+    "90937527F92239081C95D6470DEA9261510F33D3" : 0,
+    "198558D24177BEB407373AEDAB20A70863B47224" : 0,
+    "16CE14A2D81CCE323D476004724594AEF6B38C0A" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "7B326644-C760-4724-A8BF-ACF2CBDB04DF",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "198558D24177BEB407373AEDAB20A70863B47224" : "ZKINSObjectBuilder",
     "44CEC729B2537A9BE00CDF40502D82323EE23784" : "ZKIViewControllerRouter",
-    "90937527F92239081C95D6470DEA9261510F33D3" : "ZKIAppFrameworkDemo"
+    "90937527F92239081C95D6470DEA9261510F33D3" : "ZKIAppFrameworkDemo",
+    "198558D24177BEB407373AEDAB20A70863B47224" : "ZKINSObjectBuilder",
+    "16CE14A2D81CCE323D476004724594AEF6B38C0A" : "ZKIAppFrameworkDemo\/react-native\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "ZKIAppFrameworkDemo",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ZKIAppFrameworkDemo.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/facebook\/react-native.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "16CE14A2D81CCE323D476004724594AEF6B38C0A"
+    },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Wingzki\/NSObject-Builder.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",

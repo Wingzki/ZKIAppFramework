@@ -20,6 +20,8 @@
 #import "QYTableViewProtocol.h"
 #import "TestTableViewCell.h"
 
+#import "ReactView.h"
+
 @interface ZKIRootViewController () <RequestStatusViewProtocol> {
     
 }
@@ -113,6 +115,9 @@
     
     tableView.dataSource = self.tableViewProtocol;
     tableView.delegate   = self.tableViewProtocol;
+    
+    ReactView *temp = [[ReactView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 200, self.view.frame.size.width, 200)];
+    [self.view addSubview:temp];
     
  }
 
