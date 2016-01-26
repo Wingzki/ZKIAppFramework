@@ -21,6 +21,7 @@
 		C966E7411C57124700206B18 /* libRCTWebSocket.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C966E7401C57122900206B18 /* libRCTWebSocket.a */; };
 		C966E7421C57125500206B18 /* libRCTNetwork.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C966E73A1C57121600206B18 /* libRCTNetwork.a */; };
 		C966E7491C57156300206B18 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C966E7481C57154300206B18 /* libRCTText.a */; };
+		C966E7591C571D0200206B18 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = C966E7581C571D0200206B18 /* main.jsbundle */; };
 		C9811A4D1B203CB100920B44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4C1B203CB100920B44 /* main.m */; };
 		C9811A501B203CB100920B44 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C9811A4F1B203CB100920B44 /* AppDelegate.m */; };
 		C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9811A5A1B203CB100920B44 /* Images.xcassets */; };
@@ -103,6 +104,7 @@
 		C966E7351C57121600206B18 /* RCTNetwork.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTNetwork.xcodeproj; path = "react-native/Libraries/Network/RCTNetwork.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		C966E73B1C57122900206B18 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = SOURCE_ROOT; };
 		C966E7431C57154300206B18 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = SOURCE_ROOT; };
+		C966E7581C571D0200206B18 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = main.jsbundle; path = ReactNative/main.jsbundle; sourceTree = SOURCE_ROOT; };
 		C9811A471B203CB100920B44 /* ZKIAppFrameworkDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZKIAppFrameworkDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9811A4B1B203CB100920B44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C9811A4C1B203CB100920B44 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		C966E6D51C562A8A00206B18 /* ReactNative */ = {
 			isa = PBXGroup;
 			children = (
+				C966E7581C571D0200206B18 /* main.jsbundle */,
 				C966E7431C57154300206B18 /* RCTText.xcodeproj */,
 				C966E73B1C57122900206B18 /* RCTWebSocket.xcodeproj */,
 				C966E7351C57121600206B18 /* RCTNetwork.xcodeproj */,
@@ -516,6 +519,7 @@
 				C9811A5E1B203CB100920B44 /* LaunchScreen.xib in Resources */,
 				C966E70D1C570EF000206B18 /* index.ios.js in Resources */,
 				C9811A5B1B203CB100920B44 /* Images.xcassets in Resources */,
+				C966E7591C571D0200206B18 /* main.jsbundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ var {
 var styles = React.StyleSheet.create({
                                      container: {
                                      flex: 1,
-                                     backgroundColor: 'blue'
+                                     backgroundColor: 'gray'
                                      }
                                      });
 

@@ -117,7 +117,8 @@
     tableView.delegate   = self.tableViewProtocol;
     
     ReactView *temp = [[ReactView alloc] initWithFrame:CGRectMake(0, self.view.frame.size.height - 200, self.view.frame.size.width, 200)];
-    [self.view addSubview:temp];
+    
+    tableView.tableHeaderView = temp;
     
  }
 
